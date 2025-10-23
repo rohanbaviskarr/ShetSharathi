@@ -36,6 +36,9 @@ Start by cloning the repository to your local machine using the following comman
 ```bash
 git clone https://github.com/your-username/ShetSarathi.git
 cd ShetSarathi
+
+
+
 2. Set Up a Virtual Environment
 
 Run the following commands to create and activate the virtual environment.
@@ -67,9 +70,3 @@ python manage.py runserver
 
 
 Your project will now be running at http://127.0.0.1:8000
-.
-
-
----
-
-✅ You can **copy and paste this entire block** directly into your `README.md` file — it’s perfectly formatted for GitHub display.
