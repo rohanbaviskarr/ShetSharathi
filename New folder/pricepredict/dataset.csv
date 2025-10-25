@@ -1,0 +1,541 @@
+State,District,Market,Commodity,Variety,Grade,Arrival_Date,Min_x0020_Price,Max_x0020_Price,Modal_x0020_Price
+Andhra Pradesh,East Godavari,Local Market,Rice,Bunny,Medium,31/01/2022,3243,6264,4753
+Andhra Pradesh,Guntur,Main Market,Rice,Red New,Non-FAQ,31/01/2022,8368,11490,9929
+Andhra Pradesh,Kurnool,Main Market,Rice,Hybrid,Medium,31/01/2022,5200,10091,7645
+Maharashtra,Pune,Local Market,Wheat,Red New,Medium,31/01/2022,7006,11406,9206
+Maharashtra,Nagpur,Wholesale Market,Banana,Bunny,Premium,31/01/2022,4495,5538,5016
+Maharashtra,Nashik,Local Market,Banana,Bunny,Medium,31/01/2022,4880,7982,6431
+Karnataka,Bangalore,Wholesale Market,Arhar (Tur),Hybrid,Premium,31/01/2022,7619,9752,8685
+Karnataka,Mysore,Main Market,Wheat,Bunny,FAQ,31/01/2022,4217,5637,4927
+Karnataka,Hubli,Wholesale Market,Cotton,Organic,Premium,31/01/2022,1800,3650,2725
+Tamil Nadu,Chennai,Wholesale Market,Cotton,Hybrid,Premium,31/01/2022,8345,10856,9600
+Tamil Nadu,Madurai,Local Market,Dry Chillies,Hybrid,Non-FAQ,31/01/2022,6212,8666,7439
+Tamil Nadu,Coimbatore,Local Market,Arhar (Tur),Local,FAQ,31/01/2022,2186,6663,4424
+Gujarat,Ahmedabad,Wholesale Market,Cotton,Local,Non-FAQ,31/01/2022,2130,3830,2980
+Gujarat,Surat,Local Market,Banana,Hybrid,Non-FAQ,31/01/2022,2188,4280,3234
+Gujarat,Rajkot,Main Market,Rice,Local,Non-FAQ,31/01/2022,7804,10430,9117
+Andhra Pradesh,East Godavari,Main Market,Dry Chillies,Local,FAQ,28/02/2022,3188,8080,5634
+Andhra Pradesh,Guntur,Wholesale Market,Dry Chillies,Hybrid,Non-FAQ,28/02/2022,2886,5470,4178
+Andhra Pradesh,Kurnool,Main Market,Rice,Organic,Non-FAQ,28/02/2022,8197,10350,9273
+Maharashtra,Pune,Main Market,Maize,Red New,Medium,28/02/2022,7472,12033,9752
+Maharashtra,Nagpur,Local Market,Wheat,Local,Non-FAQ,28/02/2022,8106,10838,9472
+Maharashtra,Nashik,Wholesale Market,Dry Chillies,Organic,Premium,28/02/2022,4692,5774,5233
+Karnataka,Bangalore,Main Market,Wheat,Bunny,FAQ,28/02/2022,2289,3187,2738
+Karnataka,Mysore,Main Market,Maize,Organic,Non-FAQ,28/02/2022,2798,7361,5079
+Karnataka,Hubli,Main Market,Dry Chillies,Local,Premium,28/02/2022,7602,12088,9845
+Tamil Nadu,Chennai,Wholesale Market,Arhar (Tur),Local,Non-FAQ,28/02/2022,9832,12998,11415
+Tamil Nadu,Madurai,Main Market,Maize,Hybrid,Medium,28/02/2022,5246,7995,6620
+Tamil Nadu,Coimbatore,Main Market,Wheat,Local,Non-FAQ,28/02/2022,9144,12208,10676
+Gujarat,Ahmedabad,Main Market,Dry Chillies,Red New,Non-FAQ,28/02/2022,7272,12138,9705
+Gujarat,Surat,Main Market,Banana,Local,Non-FAQ,28/02/2022,759,5575,3167
+Gujarat,Rajkot,Main Market,Wheat,Bunny,Premium,28/02/2022,7454,11392,9423
+Andhra Pradesh,East Godavari,Local Market,Dry Chillies,Bunny,Premium,31/03/2022,9513,11011,10262
+Andhra Pradesh,Guntur,Local Market,Cotton,Local,Premium,31/03/2022,5692,6911,6301
+Andhra Pradesh,Kurnool,Wholesale Market,Banana,Red New,FAQ,31/03/2022,2681,7380,5030
+Maharashtra,Pune,Wholesale Market,Cotton,Hybrid,FAQ,31/03/2022,5236,8532,6884
+Maharashtra,Nagpur,Local Market,Arhar (Tur),Bunny,Medium,31/03/2022,1425,4312,2868
+Maharashtra,Nashik,Main Market,Maize,Bunny,Medium,31/03/2022,3441,7650,5545
+Karnataka,Bangalore,Main Market,Arhar (Tur),Local,FAQ,31/03/2022,4469,7222,5845
+Karnataka,Mysore,Wholesale Market,Banana,Red New,FAQ,31/03/2022,4096,8703,6399
+Karnataka,Hubli,Local Market,Dry Chillies,Local,FAQ,31/03/2022,921,3706,2313
+Tamil Nadu,Chennai,Wholesale Market,Wheat,Local,Premium,31/03/2022,3951,7129,5540
+Tamil Nadu,Madurai,Local Market,Wheat,Local,Medium,31/03/2022,1425,6097,3761
+Tamil Nadu,Coimbatore,Main Market,Dry Chillies,Local,FAQ,31/03/2022,2007,6043,4025
+Gujarat,Ahmedabad,Main Market,Arhar (Tur),Red New,Premium,31/03/2022,541,2988,1764
+Gujarat,Surat,Main Market,Cotton,Local,Medium,31/03/2022,6769,9824,8296
+Gujarat,Rajkot,Wholesale Market,Arhar (Tur),Organic,Non-FAQ,31/03/2022,7721,9408,8564
+Andhra Pradesh,East Godavari,Local Market,Wheat,Organic,Medium,30/04/2022,5212,8546,6879
+Andhra Pradesh,Guntur,Wholesale Market,Arhar (Tur),Hybrid,Non-FAQ,30/04/2022,9677,12375,11026
+Andhra Pradesh,Kurnool,Wholesale Market,Banana,Bunny,Premium,30/04/2022,7891,8616,8253
+Maharashtra,Pune,Local Market,Dry Chillies,Bunny,Non-FAQ,30/04/2022,9073,11872,10472
+Maharashtra,Nagpur,Local Market,Banana,Bunny,Medium,30/04/2022,6317,7439,6878
+Maharashtra,Nashik,Wholesale Market,Wheat,Hybrid,Medium,30/04/2022,6862,11012,8937
+Karnataka,Bangalore,Wholesale Market,Wheat,Bunny,Non-FAQ,30/04/2022,3639,4805,4222
+Karnataka,Mysore,Local Market,Wheat,Hybrid,Medium,30/04/2022,1968,3406,2687
+Karnataka,Hubli,Local Market,Rice,Local,Non-FAQ,30/04/2022,5212,6396,5804
+Tamil Nadu,Chennai,Wholesale Market,Dry Chillies,Organic,Non-FAQ,30/04/2022,2712,7054,4883
+Tamil Nadu,Madurai,Main Market,Wheat,Red New,Non-FAQ,30/04/2022,5338,9414,7376
+Tamil Nadu,Coimbatore,Local Market,Wheat,Hybrid,Non-FAQ,30/04/2022,6765,7709,7237
+Gujarat,Ahmedabad,Main Market,Banana,Bunny,Medium,30/04/2022,7122,11662,9392
+Gujarat,Surat,Wholesale Market,Rice,Local,Premium,30/04/2022,9527,12647,11087
+Gujarat,Rajkot,Local Market,Maize,Bunny,Medium,30/04/2022,1200,4241,2720
+Andhra Pradesh,East Godavari,Main Market,Maize,Hybrid,Medium,31/05/2022,2265,3925,3095
+Andhra Pradesh,Guntur,Wholesale Market,Banana,Local,FAQ,31/05/2022,5195,9935,7565
+Andhra Pradesh,Kurnool,Wholesale Market,Banana,Bunny,FAQ,31/05/2022,2375,3665,3020
+Maharashtra,Pune,Local Market,Wheat,Local,Medium,31/05/2022,7468,11440,9454
+Maharashtra,Nagpur,Wholesale Market,Arhar (Tur),Local,Non-FAQ,31/05/2022,2521,4878,3699
+Maharashtra,Nashik,Main Market,Arhar (Tur),Red New,Premium,31/05/2022,6587,11079,8833
+Karnataka,Bangalore,Local Market,Rice,Red New,Premium,31/05/2022,8155,11792,9973
+Karnataka,Mysore,Main Market,Arhar (Tur),Red New,Non-FAQ,31/05/2022,1898,4084,2991
+Karnataka,Hubli,Wholesale Market,Wheat,Local,FAQ,31/05/2022,1953,5924,3938
+Tamil Nadu,Chennai,Wholesale Market,Cotton,Bunny,FAQ,31/05/2022,6942,9373,8157
+Tamil Nadu,Madurai,Local Market,Maize,Hybrid,Non-FAQ,31/05/2022,6267,10552,8409
+Tamil Nadu,Coimbatore,Local Market,Rice,Organic,Medium,31/05/2022,1353,3934,2643
+Gujarat,Ahmedabad,Main Market,Banana,Red New,Non-FAQ,31/05/2022,4705,8787,6746
+Gujarat,Surat,Main Market,Arhar (Tur),Organic,Premium,31/05/2022,5124,6557,5840
+Gujarat,Rajkot,Wholesale Market,Cotton,Red New,Premium,31/05/2022,8706,9706,9206
+Andhra Pradesh,East Godavari,Main Market,Cotton,Bunny,FAQ,30/06/2022,3400,4390,3895
+Andhra Pradesh,Guntur,Wholesale Market,Rice,Bunny,Premium,30/06/2022,2532,5698,4115
+Andhra Pradesh,Kurnool,Local Market,Maize,Bunny,Non-FAQ,30/06/2022,7009,11774,9391
+Maharashtra,Pune,Local Market,Banana,Bunny,Premium,30/06/2022,5015,8279,6647
+Maharashtra,Nagpur,Wholesale Market,Dry Chillies,Hybrid,FAQ,30/06/2022,4391,7881,6136
+Maharashtra,Nashik,Local Market,Rice,Local,Non-FAQ,30/06/2022,819,3052,1935
+Karnataka,Bangalore,Wholesale Market,Arhar (Tur),Bunny,Non-FAQ,30/06/2022,9002,12797,10899
+Karnataka,Mysore,Main Market,Rice,Local,Non-FAQ,30/06/2022,1829,5853,3841
+Karnataka,Hubli,Local Market,Banana,Bunny,Premium,30/06/2022,3412,4088,3750
+Tamil Nadu,Chennai,Local Market,Dry Chillies,Local,FAQ,30/06/2022,6148,6956,6552
+Tamil Nadu,Madurai,Main Market,Banana,Hybrid,FAQ,30/06/2022,8681,10256,9468
+Tamil Nadu,Coimbatore,Local Market,Banana,Bunny,Medium,30/06/2022,6749,7678,7213
+Gujarat,Ahmedabad,Local Market,Rice,Local,Non-FAQ,30/06/2022,1361,2343,1852
+Gujarat,Surat,Local Market,Dry Chillies,Red New,Non-FAQ,30/06/2022,7538,10201,8869
+Gujarat,Rajkot,Main Market,Arhar (Tur),Hybrid,Premium,30/06/2022,4666,7230,5948
+Andhra Pradesh,East Godavari,Main Market,Maize,Hybrid,Non-FAQ,31/07/2022,1538,4974,3256
+Andhra Pradesh,Guntur,Wholesale Market,Wheat,Bunny,Premium,31/07/2022,4317,5415,4866
+Andhra Pradesh,Kurnool,Main Market,Arhar (Tur),Hybrid,Non-FAQ,31/07/2022,3208,6241,4724
+Maharashtra,Pune,Wholesale Market,Wheat,Bunny,Premium,31/07/2022,6916,10402,8659
+Maharashtra,Nagpur,Main Market,Maize,Red New,Premium,31/07/2022,7158,10558,8858
+Maharashtra,Nashik,Wholesale Market,Arhar (Tur),Bunny,Medium,31/07/2022,6958,11770,9364
+Karnataka,Bangalore,Wholesale Market,Arhar (Tur),Organic,FAQ,31/07/2022,7797,10791,9294
+Karnataka,Mysore,Main Market,Rice,Organic,Non-FAQ,31/07/2022,3521,6116,4818
+Karnataka,Hubli,Wholesale Market,Maize,Local,Medium,31/07/2022,9795,13483,11639
+Tamil Nadu,Chennai,Local Market,Wheat,Local,Non-FAQ,31/07/2022,9117,12388,10752
+Tamil Nadu,Madurai,Local Market,Cotton,Hybrid,Non-FAQ,31/07/2022,5422,9802,7612
+Tamil Nadu,Coimbatore,Main Market,Arhar (Tur),Organic,FAQ,31/07/2022,4219,8931,6575
+Gujarat,Ahmedabad,Main Market,Dry Chillies,Local,Premium,31/07/2022,9831,10438,10134
+Gujarat,Surat,Local Market,Wheat,Hybrid,Non-FAQ,31/07/2022,7554,10508,9031
+Gujarat,Rajkot,Main Market,Dry Chillies,Hybrid,Non-FAQ,31/07/2022,8552,10706,9629
+Andhra Pradesh,East Godavari,Wholesale Market,Banana,Organic,Premium,31/08/2022,5792,6990,6391
+Andhra Pradesh,Guntur,Local Market,Banana,Red New,Premium,31/08/2022,5318,8132,6725
+Andhra Pradesh,Kurnool,Local Market,Dry Chillies,Hybrid,FAQ,31/08/2022,9665,11818,10741
+Maharashtra,Pune,Wholesale Market,Cotton,Red New,Premium,31/08/2022,5556,10467,8011
+Maharashtra,Nagpur,Main Market,Arhar (Tur),Red New,Non-FAQ,31/08/2022,9591,13194,11392
+Maharashtra,Nashik,Main Market,Maize,Organic,Non-FAQ,31/08/2022,8137,9306,8721
+Karnataka,Bangalore,Local Market,Wheat,Red New,FAQ,31/08/2022,589,4379,2484
+Karnataka,Mysore,Wholesale Market,Dry Chillies,Red New,Medium,31/08/2022,6804,8569,7686
+Karnataka,Hubli,Main Market,Maize,Bunny,Premium,31/08/2022,5827,9654,7740
+Tamil Nadu,Chennai,Main Market,Maize,Bunny,Non-FAQ,31/08/2022,1858,6334,4096
+Tamil Nadu,Madurai,Wholesale Market,Banana,Hybrid,Medium,31/08/2022,7736,11309,9522
+Tamil Nadu,Coimbatore,Local Market,Maize,Hybrid,FAQ,31/08/2022,8526,12457,10491
+Gujarat,Ahmedabad,Main Market,Cotton,Bunny,Premium,31/08/2022,3220,6764,4992
+Gujarat,Surat,Local Market,Wheat,Organic,Medium,31/08/2022,7683,9762,8722
+Gujarat,Rajkot,Local Market,Dry Chillies,Local,Non-FAQ,31/08/2022,2237,5105,3671
+Andhra Pradesh,East Godavari,Main Market,Wheat,Red New,Medium,30/09/2022,3796,4913,4354
+Andhra Pradesh,Guntur,Main Market,Banana,Hybrid,FAQ,30/09/2022,8571,11595,10083
+Andhra Pradesh,Kurnool,Wholesale Market,Dry Chillies,Bunny,Medium,30/09/2022,6893,11692,9292
+Maharashtra,Pune,Local Market,Arhar (Tur),Local,FAQ,30/09/2022,4550,9547,7048
+Maharashtra,Nagpur,Main Market,Cotton,Hybrid,FAQ,30/09/2022,7847,11574,9710
+Maharashtra,Nashik,Main Market,Dry Chillies,Red New,FAQ,30/09/2022,6955,8559,7757
+Karnataka,Bangalore,Wholesale Market,Arhar (Tur),Organic,FAQ,30/09/2022,869,4217,2543
+Karnataka,Mysore,Wholesale Market,Rice,Red New,FAQ,30/09/2022,6324,11126,8725
+Karnataka,Hubli,Main Market,Cotton,Hybrid,Non-FAQ,30/09/2022,9609,12306,10957
+Tamil Nadu,Chennai,Local Market,Rice,Red New,FAQ,30/09/2022,4152,4736,4444
+Tamil Nadu,Madurai,Local Market,Maize,Local,Premium,30/09/2022,5054,9131,7092
+Tamil Nadu,Coimbatore,Local Market,Maize,Hybrid,Medium,30/09/2022,7566,10075,8820
+Gujarat,Ahmedabad,Wholesale Market,Maize,Bunny,Medium,30/09/2022,9959,13351,11655
+Gujarat,Surat,Main Market,Maize,Local,Medium,30/09/2022,4312,7496,5904
+Gujarat,Rajkot,Main Market,Maize,Red New,Non-FAQ,30/09/2022,3959,6830,5394
+Andhra Pradesh,East Godavari,Wholesale Market,Cotton,Organic,Medium,31/10/2022,9357,11568,10462
+Andhra Pradesh,Guntur,Wholesale Market,Maize,Hybrid,Premium,31/10/2022,3197,5106,4151
+Andhra Pradesh,Kurnool,Wholesale Market,Wheat,Bunny,FAQ,31/10/2022,4460,7766,6113
+Maharashtra,Pune,Wholesale Market,Rice,Hybrid,Premium,31/10/2022,3600,5717,4658
+Maharashtra,Nagpur,Local Market,Cotton,Organic,Premium,31/10/2022,1019,4634,2826
+Maharashtra,Nashik,Main Market,Dry Chillies,Local,Non-FAQ,31/10/2022,689,2981,1835
+Karnataka,Bangalore,Local Market,Rice,Local,Non-FAQ,31/10/2022,5341,8122,6731
+Karnataka,Mysore,Main Market,Wheat,Hybrid,Medium,31/10/2022,603,5028,2815
+Karnataka,Hubli,Wholesale Market,Rice,Local,Premium,31/10/2022,3470,6059,4764
+Tamil Nadu,Chennai,Wholesale Market,Rice,Organic,Medium,31/10/2022,5194,9954,7574
+Tamil Nadu,Madurai,Wholesale Market,Dry Chillies,Hybrid,Non-FAQ,31/10/2022,6648,9300,7974
+Tamil Nadu,Coimbatore,Local Market,Dry Chillies,Local,Premium,31/10/2022,4814,6416,5615
+Gujarat,Ahmedabad,Main Market,Arhar (Tur),Bunny,FAQ,31/10/2022,8187,13103,10645
+Gujarat,Surat,Main Market,Cotton,Red New,FAQ,31/10/2022,4216,6856,5536
+Gujarat,Rajkot,Local Market,Dry Chillies,Organic,Premium,31/10/2022,4241,5625,4933
+Andhra Pradesh,East Godavari,Local Market,Cotton,Bunny,Medium,30/11/2022,6342,9000,7671
+Andhra Pradesh,Guntur,Local Market,Banana,Red New,Non-FAQ,30/11/2022,2784,6890,4837
+Andhra Pradesh,Kurnool,Wholesale Market,Dry Chillies,Red New,Medium,30/11/2022,4012,8471,6241
+Maharashtra,Pune,Wholesale Market,Wheat,Red New,Non-FAQ,30/11/2022,6978,8549,7763
+Maharashtra,Nagpur,Local Market,Arhar (Tur),Organic,Medium,30/11/2022,9486,12989,11237
+Maharashtra,Nashik,Wholesale Market,Arhar (Tur),Hybrid,Medium,30/11/2022,8345,11234,9789
+Karnataka,Bangalore,Main Market,Rice,Bunny,FAQ,30/11/2022,2703,3677,3190
+Karnataka,Mysore,Wholesale Market,Maize,Bunny,Non-FAQ,30/11/2022,6646,7548,7097
+Karnataka,Hubli,Wholesale Market,Banana,Red New,Premium,30/11/2022,1751,3397,2574
+Tamil Nadu,Chennai,Main Market,Cotton,Hybrid,Medium,30/11/2022,4853,8261,6557
+Tamil Nadu,Madurai,Local Market,Banana,Bunny,Premium,30/11/2022,4652,5362,5007
+Tamil Nadu,Coimbatore,Wholesale Market,Rice,Hybrid,Non-FAQ,30/11/2022,6001,9774,7887
+Gujarat,Ahmedabad,Wholesale Market,Banana,Red New,Premium,30/11/2022,6961,7590,7275
+Gujarat,Surat,Main Market,Cotton,Bunny,FAQ,30/11/2022,8651,9363,9007
+Gujarat,Rajkot,Wholesale Market,Arhar (Tur),Red New,Non-FAQ,30/11/2022,5806,7386,6596
+Andhra Pradesh,East Godavari,Wholesale Market,Cotton,Organic,Medium,31/12/2022,5079,6880,5979
+Andhra Pradesh,Guntur,Local Market,Dry Chillies,Bunny,Non-FAQ,31/12/2022,6763,7848,7305
+Andhra Pradesh,Kurnool,Local Market,Maize,Bunny,Premium,31/12/2022,5637,7754,6695
+Maharashtra,Pune,Local Market,Cotton,Hybrid,Non-FAQ,31/12/2022,1062,4462,2762
+Maharashtra,Nagpur,Local Market,Cotton,Bunny,Medium,31/12/2022,4933,7132,6032
+Maharashtra,Nashik,Wholesale Market,Dry Chillies,Red New,FAQ,31/12/2022,6067,8526,7296
+Karnataka,Bangalore,Local Market,Dry Chillies,Local,Premium,31/12/2022,2893,3966,3429
+Karnataka,Mysore,Local Market,Arhar (Tur),Bunny,Medium,31/12/2022,2998,3899,3448
+Karnataka,Hubli,Local Market,Maize,Bunny,Non-FAQ,31/12/2022,3123,6849,4986
+Tamil Nadu,Chennai,Local Market,Banana,Bunny,Non-FAQ,31/12/2022,5461,7964,6712
+Tamil Nadu,Madurai,Wholesale Market,Maize,Bunny,FAQ,31/12/2022,6788,8494,7641
+Tamil Nadu,Coimbatore,Local Market,Banana,Local,FAQ,31/12/2022,1798,6443,4120
+Gujarat,Ahmedabad,Wholesale Market,Maize,Organic,Premium,31/12/2022,9177,9923,9550
+Gujarat,Surat,Main Market,Banana,Hybrid,Medium,31/12/2022,7900,8700,8300
+Gujarat,Rajkot,Wholesale Market,Rice,Organic,FAQ,31/12/2022,5693,9998,7845
+Andhra Pradesh,East Godavari,Main Market,Arhar (Tur),Bunny,Premium,31/01/2023,7654,9417,8535
+Andhra Pradesh,Guntur,Local Market,Dry Chillies,Local,Non-FAQ,31/01/2023,9626,13697,11661
+Andhra Pradesh,Kurnool,Wholesale Market,Cotton,Organic,Non-FAQ,31/01/2023,1173,4888,3030
+Maharashtra,Pune,Local Market,Cotton,Organic,Medium,31/01/2023,1367,2942,2154
+Maharashtra,Nagpur,Main Market,Wheat,Organic,Medium,31/01/2023,4384,4904,4644
+Maharashtra,Nashik,Local Market,Arhar (Tur),Organic,Premium,31/01/2023,3290,7768,5529
+Karnataka,Bangalore,Local Market,Maize,Organic,Non-FAQ,31/01/2023,1500,5249,3374
+Karnataka,Mysore,Wholesale Market,Dry Chillies,Hybrid,FAQ,31/01/2023,5170,9852,7511
+Karnataka,Hubli,Local Market,Maize,Organic,Non-FAQ,31/01/2023,1892,6420,4156
+Tamil Nadu,Chennai,Local Market,Rice,Red New,Premium,31/01/2023,5453,8271,6862
+Tamil Nadu,Madurai,Local Market,Rice,Local,FAQ,31/01/2023,8384,12704,10544
+Tamil Nadu,Coimbatore,Main Market,Rice,Local,Medium,31/01/2023,8756,9585,9170
+Gujarat,Ahmedabad,Main Market,Dry Chillies,Hybrid,Non-FAQ,31/01/2023,5764,7762,6763
+Gujarat,Surat,Wholesale Market,Maize,Bunny,Premium,31/01/2023,8160,12382,10271
+Gujarat,Rajkot,Wholesale Market,Maize,Red New,Premium,31/01/2023,5899,9046,7472
+Andhra Pradesh,East Godavari,Main Market,Arhar (Tur),Bunny,Premium,28/02/2023,3348,7985,5666
+Andhra Pradesh,Guntur,Wholesale Market,Rice,Hybrid,Medium,28/02/2023,4415,9077,6746
+Andhra Pradesh,Kurnool,Wholesale Market,Arhar (Tur),Local,Non-FAQ,28/02/2023,7021,8291,7656
+Maharashtra,Pune,Wholesale Market,Rice,Red New,Non-FAQ,28/02/2023,663,1206,934
+Maharashtra,Nagpur,Wholesale Market,Cotton,Hybrid,FAQ,28/02/2023,7465,11719,9592
+Maharashtra,Nashik,Local Market,Wheat,Organic,Non-FAQ,28/02/2023,5886,9471,7678
+Karnataka,Bangalore,Wholesale Market,Dry Chillies,Bunny,Premium,28/02/2023,7684,9690,8687
+Karnataka,Mysore,Main Market,Maize,Hybrid,Premium,28/02/2023,1498,3347,2422
+Karnataka,Hubli,Wholesale Market,Cotton,Local,Premium,28/02/2023,7731,9065,8398
+Tamil Nadu,Chennai,Main Market,Dry Chillies,Bunny,FAQ,28/02/2023,1346,3564,2455
+Tamil Nadu,Madurai,Wholesale Market,Maize,Bunny,Non-FAQ,28/02/2023,4538,9157,6847
+Tamil Nadu,Coimbatore,Main Market,Dry Chillies,Organic,Medium,28/02/2023,1092,5972,3532
+Gujarat,Ahmedabad,Wholesale Market,Wheat,Organic,Non-FAQ,28/02/2023,3455,6184,4819
+Gujarat,Surat,Main Market,Rice,Local,Medium,28/02/2023,3592,4856,4224
+Gujarat,Rajkot,Local Market,Cotton,Red New,Premium,28/02/2023,6765,11482,9123
+Andhra Pradesh,East Godavari,Local Market,Wheat,Local,Non-FAQ,31/03/2023,8681,13580,11130
+Andhra Pradesh,Guntur,Local Market,Maize,Organic,Non-FAQ,31/03/2023,4257,8438,6347
+Andhra Pradesh,Kurnool,Local Market,Wheat,Red New,Premium,31/03/2023,1895,3811,2853
+Maharashtra,Pune,Local Market,Banana,Red New,Non-FAQ,31/03/2023,3894,5624,4759
+Maharashtra,Nagpur,Local Market,Cotton,Organic,FAQ,31/03/2023,2251,3822,3036
+Maharashtra,Nashik,Main Market,Dry Chillies,Organic,Premium,31/03/2023,5623,6290,5956
+Karnataka,Bangalore,Local Market,Cotton,Local,Premium,31/03/2023,1296,5328,3312
+Karnataka,Mysore,Wholesale Market,Rice,Bunny,Medium,31/03/2023,7265,10109,8687
+Karnataka,Hubli,Main Market,Rice,Local,Non-FAQ,31/03/2023,4060,5158,4609
+Tamil Nadu,Chennai,Main Market,Wheat,Local,Premium,31/03/2023,9171,12350,10760
+Tamil Nadu,Madurai,Main Market,Arhar (Tur),Organic,Premium,31/03/2023,3156,7032,5094
+Tamil Nadu,Coimbatore,Local Market,Arhar (Tur),Red New,Non-FAQ,31/03/2023,4761,5763,5262
+Gujarat,Ahmedabad,Main Market,Rice,Bunny,Premium,31/03/2023,8576,13048,10812
+Gujarat,Surat,Local Market,Maize,Bunny,FAQ,31/03/2023,7590,9397,8493
+Gujarat,Rajkot,Main Market,Dry Chillies,Red New,FAQ,31/03/2023,8217,11273,9745
+Andhra Pradesh,East Godavari,Wholesale Market,Maize,Local,Medium,30/04/2023,6460,10184,8322
+Andhra Pradesh,Guntur,Wholesale Market,Arhar (Tur),Red New,Premium,30/04/2023,1238,3562,2400
+Andhra Pradesh,Kurnool,Local Market,Banana,Bunny,Non-FAQ,30/04/2023,5126,9614,7370
+Maharashtra,Pune,Main Market,Banana,Red New,Medium,30/04/2023,6816,10236,8526
+Maharashtra,Nagpur,Local Market,Rice,Local,Medium,30/04/2023,6498,9386,7942
+Maharashtra,Nashik,Local Market,Arhar (Tur),Bunny,Medium,30/04/2023,7094,8895,7994
+Karnataka,Bangalore,Local Market,Rice,Red New,Medium,30/04/2023,7654,11218,9436
+Karnataka,Mysore,Local Market,Wheat,Bunny,Premium,30/04/2023,4117,5499,4808
+Karnataka,Hubli,Wholesale Market,Wheat,Bunny,Premium,30/04/2023,8074,9262,8668
+Tamil Nadu,Chennai,Main Market,Rice,Bunny,Medium,30/04/2023,5087,5891,5489
+Tamil Nadu,Madurai,Local Market,Banana,Bunny,FAQ,30/04/2023,576,1958,1267
+Tamil Nadu,Coimbatore,Local Market,Rice,Bunny,Non-FAQ,30/04/2023,3654,5004,4329
+Gujarat,Ahmedabad,Wholesale Market,Dry Chillies,Local,Premium,30/04/2023,7652,10550,9101
+Gujarat,Surat,Wholesale Market,Dry Chillies,Red New,Premium,30/04/2023,4558,8152,6355
+Gujarat,Rajkot,Main Market,Cotton,Bunny,Non-FAQ,30/04/2023,5618,6514,6066
+Andhra Pradesh,East Godavari,Wholesale Market,Maize,Organic,Medium,31/05/2023,9947,12738,11342
+Andhra Pradesh,Guntur,Local Market,Cotton,Red New,Medium,31/05/2023,3377,7837,5607
+Andhra Pradesh,Kurnool,Local Market,Wheat,Hybrid,Medium,31/05/2023,3356,4159,3757
+Maharashtra,Pune,Local Market,Wheat,Organic,Non-FAQ,31/05/2023,1160,2950,2055
+Maharashtra,Nagpur,Local Market,Wheat,Local,Medium,31/05/2023,2680,5095,3887
+Maharashtra,Nashik,Wholesale Market,Arhar (Tur),Red New,Non-FAQ,31/05/2023,9400,12561,10980
+Karnataka,Bangalore,Main Market,Maize,Hybrid,FAQ,31/05/2023,7239,11480,9359
+Karnataka,Mysore,Wholesale Market,Banana,Bunny,Premium,31/05/2023,674,5330,3002
+Karnataka,Hubli,Wholesale Market,Rice,Organic,Premium,31/05/2023,8805,12481,10643
+Tamil Nadu,Chennai,Local Market,Maize,Red New,Premium,31/05/2023,3810,5887,4848
+Tamil Nadu,Madurai,Local Market,Cotton,Local,Medium,31/05/2023,1980,6746,4363
+Tamil Nadu,Coimbatore,Wholesale Market,Banana,Local,Medium,31/05/2023,8930,13498,11214
+Gujarat,Ahmedabad,Main Market,Dry Chillies,Bunny,Premium,31/05/2023,5534,9694,7614
+Gujarat,Surat,Wholesale Market,Banana,Local,Medium,31/05/2023,6219,10659,8439
+Gujarat,Rajkot,Wholesale Market,Maize,Hybrid,Medium,31/05/2023,3439,8002,5720
+Andhra Pradesh,East Godavari,Main Market,Arhar (Tur),Hybrid,FAQ,30/06/2023,554,3886,2220
+Andhra Pradesh,Guntur,Main Market,Cotton,Local,Medium,30/06/2023,715,3557,2136
+Andhra Pradesh,Kurnool,Main Market,Dry Chillies,Local,Non-FAQ,30/06/2023,5282,9791,7536
+Maharashtra,Pune,Local Market,Arhar (Tur),Local,FAQ,30/06/2023,8570,9306,8938
+Maharashtra,Nagpur,Main Market,Rice,Organic,Premium,30/06/2023,9194,13362,11278
+Maharashtra,Nashik,Wholesale Market,Wheat,Red New,Medium,30/06/2023,4650,8253,6451
+Karnataka,Bangalore,Local Market,Cotton,Organic,FAQ,30/06/2023,1577,2217,1897
+Karnataka,Mysore,Main Market,Dry Chillies,Hybrid,FAQ,30/06/2023,868,3654,2261
+Karnataka,Hubli,Wholesale Market,Maize,Red New,FAQ,30/06/2023,9793,10436,10114
+Tamil Nadu,Chennai,Local Market,Banana,Hybrid,Non-FAQ,30/06/2023,2633,4886,3759
+Tamil Nadu,Madurai,Local Market,Arhar (Tur),Bunny,FAQ,30/06/2023,9524,11879,10701
+Tamil Nadu,Coimbatore,Main Market,Arhar (Tur),Bunny,FAQ,30/06/2023,8795,13254,11024
+Gujarat,Ahmedabad,Wholesale Market,Dry Chillies,Bunny,Medium,30/06/2023,4835,8372,6603
+Gujarat,Surat,Main Market,Maize,Red New,Medium,30/06/2023,5102,6781,5941
+Gujarat,Rajkot,Wholesale Market,Cotton,Bunny,Non-FAQ,30/06/2023,6448,9436,7942
+Andhra Pradesh,East Godavari,Main Market,Cotton,Organic,Non-FAQ,31/07/2023,4662,9082,6872
+Andhra Pradesh,Guntur,Wholesale Market,Dry Chillies,Local,Medium,31/07/2023,1577,4359,2968
+Andhra Pradesh,Kurnool,Wholesale Market,Rice,Local,FAQ,31/07/2023,8555,10248,9401
+Maharashtra,Pune,Main Market,Rice,Hybrid,FAQ,31/07/2023,8390,12444,10417
+Maharashtra,Nagpur,Wholesale Market,Dry Chillies,Bunny,FAQ,31/07/2023,9918,14488,12203
+Maharashtra,Nashik,Local Market,Rice,Hybrid,FAQ,31/07/2023,2518,7127,4822
+Karnataka,Bangalore,Main Market,Arhar (Tur),Local,Medium,31/07/2023,9638,13115,11376
+Karnataka,Mysore,Local Market,Wheat,Local,Premium,31/07/2023,4166,7222,5694
+Karnataka,Hubli,Main Market,Banana,Red New,Medium,31/07/2023,9328,11699,10513
+Tamil Nadu,Chennai,Wholesale Market,Arhar (Tur),Hybrid,Medium,31/07/2023,9067,9900,9483
+Tamil Nadu,Madurai,Wholesale Market,Cotton,Organic,FAQ,31/07/2023,7770,12744,10257
+Tamil Nadu,Coimbatore,Main Market,Dry Chillies,Bunny,Non-FAQ,31/07/2023,1999,3007,2503
+Gujarat,Ahmedabad,Wholesale Market,Wheat,Bunny,FAQ,31/07/2023,9048,11463,10255
+Gujarat,Surat,Local Market,Wheat,Bunny,Non-FAQ,31/07/2023,7096,9163,8129
+Gujarat,Rajkot,Local Market,Dry Chillies,Red New,FAQ,31/07/2023,3938,5403,4670
+Andhra Pradesh,East Godavari,Local Market,Maize,Red New,Premium,31/08/2023,6181,7637,6909
+Andhra Pradesh,Guntur,Wholesale Market,Rice,Bunny,FAQ,31/08/2023,9197,14143,11670
+Andhra Pradesh,Kurnool,Local Market,Wheat,Local,Premium,31/08/2023,7371,8189,7780
+Maharashtra,Pune,Main Market,Cotton,Organic,Premium,31/08/2023,4276,5750,5013
+Maharashtra,Nagpur,Local Market,Maize,Bunny,Premium,31/08/2023,5670,6773,6221
+Maharashtra,Nashik,Wholesale Market,Wheat,Local,Medium,31/08/2023,1527,5129,3328
+Karnataka,Bangalore,Local Market,Cotton,Local,Non-FAQ,31/08/2023,1306,6115,3710
+Karnataka,Mysore,Local Market,Cotton,Organic,Premium,31/08/2023,5623,7903,6763
+Karnataka,Hubli,Local Market,Rice,Local,Premium,31/08/2023,665,1357,1011
+Tamil Nadu,Chennai,Wholesale Market,Rice,Organic,Non-FAQ,31/08/2023,7828,8694,8261
+Tamil Nadu,Madurai,Local Market,Cotton,Hybrid,Non-FAQ,31/08/2023,1166,2474,1820
+Tamil Nadu,Coimbatore,Wholesale Market,Cotton,Hybrid,Non-FAQ,31/08/2023,9330,13350,11340
+Gujarat,Ahmedabad,Local Market,Banana,Red New,FAQ,31/08/2023,9793,10542,10167
+Gujarat,Surat,Wholesale Market,Maize,Organic,Non-FAQ,31/08/2023,1028,5498,3263
+Gujarat,Rajkot,Main Market,Banana,Organic,Non-FAQ,31/08/2023,4691,7703,6197
+Andhra Pradesh,East Godavari,Local Market,Wheat,Red New,Premium,30/09/2023,7327,10027,8677
+Andhra Pradesh,Guntur,Local Market,Banana,Hybrid,Non-FAQ,30/09/2023,5849,8892,7370
+Andhra Pradesh,Kurnool,Local Market,Wheat,Organic,Non-FAQ,30/09/2023,7621,10334,8977
+Maharashtra,Pune,Wholesale Market,Arhar (Tur),Local,Premium,30/09/2023,4601,8546,6573
+Maharashtra,Nagpur,Local Market,Rice,Organic,Non-FAQ,30/09/2023,6487,7612,7049
+Maharashtra,Nashik,Main Market,Arhar (Tur),Local,Medium,30/09/2023,7145,8437,7791
+Karnataka,Bangalore,Main Market,Arhar (Tur),Organic,Medium,30/09/2023,3763,4652,4207
+Karnataka,Mysore,Main Market,Maize,Red New,Non-FAQ,30/09/2023,6901,10355,8628
+Karnataka,Hubli,Wholesale Market,Maize,Organic,Medium,30/09/2023,8876,10148,9512
+Tamil Nadu,Chennai,Wholesale Market,Wheat,Hybrid,Non-FAQ,30/09/2023,7258,11022,9140
+Tamil Nadu,Madurai,Local Market,Maize,Bunny,Premium,30/09/2023,6468,9290,7879
+Tamil Nadu,Coimbatore,Main Market,Wheat,Red New,Non-FAQ,30/09/2023,9438,14088,11763
+Gujarat,Ahmedabad,Local Market,Banana,Hybrid,Premium,30/09/2023,1642,4082,2862
+Gujarat,Surat,Wholesale Market,Cotton,Bunny,FAQ,30/09/2023,4532,6517,5524
+Gujarat,Rajkot,Main Market,Dry Chillies,Bunny,Medium,30/09/2023,3190,4427,3808
+Andhra Pradesh,East Godavari,Local Market,Banana,Red New,Non-FAQ,31/10/2023,1346,5638,3492
+Andhra Pradesh,Guntur,Main Market,Banana,Organic,Premium,31/10/2023,2448,6313,4380
+Andhra Pradesh,Kurnool,Wholesale Market,Arhar (Tur),Local,Non-FAQ,31/10/2023,8989,13621,11305
+Maharashtra,Pune,Local Market,Maize,Red New,Non-FAQ,31/10/2023,9843,10630,10236
+Maharashtra,Nagpur,Main Market,Maize,Hybrid,Premium,31/10/2023,9696,10212,9954
+Maharashtra,Nashik,Main Market,Arhar (Tur),Red New,FAQ,31/10/2023,6265,7175,6720
+Karnataka,Bangalore,Local Market,Dry Chillies,Red New,Medium,31/10/2023,1645,6394,4019
+Karnataka,Mysore,Wholesale Market,Arhar (Tur),Bunny,Non-FAQ,31/10/2023,7333,10676,9004
+Karnataka,Hubli,Wholesale Market,Wheat,Bunny,Premium,31/10/2023,2296,7245,4770
+Tamil Nadu,Chennai,Wholesale Market,Rice,Hybrid,FAQ,31/10/2023,7257,10920,9088
+Tamil Nadu,Madurai,Wholesale Market,Dry Chillies,Organic,Non-FAQ,31/10/2023,1655,2431,2043
+Tamil Nadu,Coimbatore,Local Market,Cotton,Hybrid,FAQ,31/10/2023,1985,3830,2907
+Gujarat,Ahmedabad,Wholesale Market,Dry Chillies,Red New,Non-FAQ,31/10/2023,8022,9967,8994
+Gujarat,Surat,Local Market,Arhar (Tur),Organic,Non-FAQ,31/10/2023,8953,10118,9535
+Gujarat,Rajkot,Wholesale Market,Dry Chillies,Hybrid,Premium,31/10/2023,1005,3331,2168
+Andhra Pradesh,East Godavari,Wholesale Market,Wheat,Organic,Medium,30/11/2023,7559,11324,9441
+Andhra Pradesh,Guntur,Main Market,Rice,Red New,Non-FAQ,30/11/2023,7753,11325,9539
+Andhra Pradesh,Kurnool,Main Market,Dry Chillies,Local,Premium,30/11/2023,8064,12023,10043
+Maharashtra,Pune,Local Market,Arhar (Tur),Red New,Medium,30/11/2023,1176,4638,2907
+Maharashtra,Nagpur,Wholesale Market,Wheat,Local,Medium,30/11/2023,5188,8510,6849
+Maharashtra,Nashik,Main Market,Wheat,Hybrid,Medium,30/11/2023,2144,6772,4458
+Karnataka,Bangalore,Wholesale Market,Banana,Organic,Premium,30/11/2023,5088,8229,6658
+Karnataka,Mysore,Main Market,Cotton,Red New,FAQ,30/11/2023,7133,11642,9387
+Karnataka,Hubli,Main Market,Arhar (Tur),Organic,Premium,30/11/2023,8939,10963,9951
+Tamil Nadu,Chennai,Wholesale Market,Dry Chillies,Hybrid,FAQ,30/11/2023,3863,6729,5296
+Tamil Nadu,Madurai,Main Market,Arhar (Tur),Hybrid,Non-FAQ,30/11/2023,3038,7897,5467
+Tamil Nadu,Coimbatore,Local Market,Dry Chillies,Organic,FAQ,30/11/2023,8589,9319,8954
+Gujarat,Ahmedabad,Main Market,Rice,Hybrid,Medium,30/11/2023,4498,5334,4916
+Gujarat,Surat,Main Market,Rice,Hybrid,FAQ,30/11/2023,1875,6530,4202
+Gujarat,Rajkot,Wholesale Market,Dry Chillies,Bunny,FAQ,30/11/2023,6729,9075,7902
+Andhra Pradesh,East Godavari,Wholesale Market,Arhar (Tur),Organic,Medium,31/12/2023,8879,13677,11278
+Andhra Pradesh,Guntur,Main Market,Cotton,Local,Non-FAQ,31/12/2023,2384,4136,3260
+Andhra Pradesh,Kurnool,Local Market,Maize,Organic,Premium,31/12/2023,3294,6271,4782
+Maharashtra,Pune,Main Market,Wheat,Hybrid,FAQ,31/12/2023,7366,12121,9743
+Maharashtra,Nagpur,Wholesale Market,Rice,Bunny,Premium,31/12/2023,6805,9828,8316
+Maharashtra,Nashik,Main Market,Arhar (Tur),Organic,Premium,31/12/2023,1919,5058,3488
+Karnataka,Bangalore,Local Market,Dry Chillies,Bunny,FAQ,31/12/2023,4214,8252,6233
+Karnataka,Mysore,Wholesale Market,Arhar (Tur),Organic,Medium,31/12/2023,763,3822,2292
+Karnataka,Hubli,Local Market,Maize,Bunny,Medium,31/12/2023,6703,8296,7499
+Tamil Nadu,Chennai,Wholesale Market,Banana,Bunny,Non-FAQ,31/12/2023,3073,4694,3883
+Tamil Nadu,Madurai,Local Market,Cotton,Hybrid,Medium,31/12/2023,5224,8617,6920
+Tamil Nadu,Coimbatore,Local Market,Dry Chillies,Organic,Medium,31/12/2023,4330,5040,4685
+Gujarat,Ahmedabad,Local Market,Arhar (Tur),Organic,Medium,31/12/2023,6378,7899,7138
+Gujarat,Surat,Local Market,Banana,Red New,FAQ,31/12/2023,6284,9604,7944
+Gujarat,Rajkot,Local Market,Cotton,Organic,Non-FAQ,31/12/2023,7961,10059,9010
+Andhra Pradesh,East Godavari,Wholesale Market,Maize,Local,FAQ,31/01/2024,5026,6323,5674
+Andhra Pradesh,Guntur,Local Market,Arhar (Tur),Local,Medium,31/01/2024,877,5604,3240
+Andhra Pradesh,Kurnool,Wholesale Market,Arhar (Tur),Red New,Non-FAQ,31/01/2024,9153,12735,10944
+Maharashtra,Pune,Main Market,Rice,Organic,FAQ,31/01/2024,3235,5670,4452
+Maharashtra,Nagpur,Wholesale Market,Wheat,Red New,FAQ,31/01/2024,3798,4553,4175
+Maharashtra,Nashik,Main Market,Arhar (Tur),Hybrid,Medium,31/01/2024,5975,8943,7459
+Karnataka,Bangalore,Local Market,Arhar (Tur),Bunny,Non-FAQ,31/01/2024,6011,10193,8102
+Karnataka,Mysore,Local Market,Maize,Red New,Non-FAQ,31/01/2024,8521,13217,10869
+Karnataka,Hubli,Main Market,Banana,Red New,FAQ,31/01/2024,7519,11746,9632
+Tamil Nadu,Chennai,Wholesale Market,Dry Chillies,Bunny,Premium,31/01/2024,7283,10579,8931
+Tamil Nadu,Madurai,Local Market,Wheat,Red New,FAQ,31/01/2024,9915,11893,10904
+Tamil Nadu,Coimbatore,Main Market,Cotton,Bunny,Premium,31/01/2024,4248,6981,5614
+Gujarat,Ahmedabad,Wholesale Market,Wheat,Local,Premium,31/01/2024,4252,6118,5185
+Gujarat,Surat,Main Market,Wheat,Organic,Medium,31/01/2024,3716,5797,4756
+Gujarat,Rajkot,Wholesale Market,Rice,Local,Non-FAQ,31/01/2024,8148,12847,10497
+Andhra Pradesh,East Godavari,Main Market,Wheat,Hybrid,Non-FAQ,29/02/2024,6757,7662,7209
+Andhra Pradesh,Guntur,Local Market,Wheat,Organic,Medium,29/02/2024,1185,5040,3112
+Andhra Pradesh,Kurnool,Main Market,Wheat,Local,Premium,29/02/2024,3105,6745,4925
+Maharashtra,Pune,Local Market,Maize,Organic,Non-FAQ,29/02/2024,5030,8760,6895
+Maharashtra,Nagpur,Wholesale Market,Banana,Bunny,FAQ,29/02/2024,1606,5719,3662
+Maharashtra,Nashik,Main Market,Cotton,Red New,Non-FAQ,29/02/2024,9790,13132,11461
+Karnataka,Bangalore,Wholesale Market,Maize,Hybrid,Non-FAQ,29/02/2024,4986,7438,6212
+Karnataka,Mysore,Local Market,Maize,Hybrid,Medium,29/02/2024,1274,5686,3480
+Karnataka,Hubli,Main Market,Arhar (Tur),Local,Medium,29/02/2024,3152,6403,4777
+Tamil Nadu,Chennai,Main Market,Dry Chillies,Bunny,FAQ,29/02/2024,3247,5281,4264
+Tamil Nadu,Madurai,Main Market,Cotton,Local,Premium,29/02/2024,1318,2599,1958
+Tamil Nadu,Coimbatore,Wholesale Market,Cotton,Red New,Premium,29/02/2024,1274,1866,1570
+Gujarat,Ahmedabad,Main Market,Rice,Bunny,Premium,29/02/2024,3179,7785,5482
+Gujarat,Surat,Local Market,Cotton,Bunny,FAQ,29/02/2024,7844,10315,9079
+Gujarat,Rajkot,Local Market,Arhar (Tur),Local,Non-FAQ,29/02/2024,9180,12207,10693
+Andhra Pradesh,East Godavari,Main Market,Dry Chillies,Hybrid,Medium,31/03/2024,6194,9649,7921
+Andhra Pradesh,Guntur,Main Market,Banana,Red New,Medium,31/03/2024,4436,8823,6629
+Andhra Pradesh,Kurnool,Main Market,Maize,Organic,Premium,31/03/2024,6693,11179,8936
+Maharashtra,Pune,Wholesale Market,Cotton,Bunny,Premium,31/03/2024,2414,5256,3835
+Maharashtra,Nagpur,Main Market,Cotton,Local,FAQ,31/03/2024,3105,5275,4190
+Maharashtra,Nashik,Local Market,Wheat,Hybrid,Medium,31/03/2024,7296,11166,9231
+Karnataka,Bangalore,Wholesale Market,Rice,Red New,FAQ,31/03/2024,8101,11305,9703
+Karnataka,Mysore,Local Market,Dry Chillies,Hybrid,FAQ,31/03/2024,2071,3761,2916
+Karnataka,Hubli,Local Market,Dry Chillies,Organic,FAQ,31/03/2024,5563,6492,6027
+Tamil Nadu,Chennai,Main Market,Rice,Red New,Premium,31/03/2024,9431,10030,9730
+Tamil Nadu,Madurai,Main Market,Cotton,Local,Premium,31/03/2024,7837,10510,9173
+Tamil Nadu,Coimbatore,Local Market,Wheat,Organic,Medium,31/03/2024,1227,5350,3288
+Gujarat,Ahmedabad,Local Market,Dry Chillies,Organic,Medium,31/03/2024,2032,3681,2856
+Gujarat,Surat,Main Market,Maize,Local,Non-FAQ,31/03/2024,7850,12588,10219
+Gujarat,Rajkot,Main Market,Dry Chillies,Local,Premium,31/03/2024,6122,9796,7959
+Andhra Pradesh,East Godavari,Wholesale Market,Wheat,Hybrid,Non-FAQ,30/04/2024,7160,10827,8993
+Andhra Pradesh,Guntur,Wholesale Market,Arhar (Tur),Red New,Non-FAQ,30/04/2024,2320,6948,4634
+Andhra Pradesh,Kurnool,Local Market,Maize,Red New,Non-FAQ,30/04/2024,1816,6233,4024
+Maharashtra,Pune,Main Market,Wheat,Bunny,Medium,30/04/2024,2883,4271,3577
+Maharashtra,Nagpur,Local Market,Wheat,Hybrid,Premium,30/04/2024,9094,13445,11269
+Maharashtra,Nashik,Main Market,Rice,Local,FAQ,30/04/2024,1662,5690,3676
+Karnataka,Bangalore,Local Market,Cotton,Local,Medium,30/04/2024,8239,12181,10210
+Karnataka,Mysore,Wholesale Market,Wheat,Organic,Premium,30/04/2024,5117,7131,6124
+Karnataka,Hubli,Local Market,Wheat,Organic,Premium,30/04/2024,7731,11813,9772
+Tamil Nadu,Chennai,Main Market,Dry Chillies,Local,Medium,30/04/2024,7381,10785,9083
+Tamil Nadu,Madurai,Local Market,Cotton,Hybrid,FAQ,30/04/2024,2469,3809,3139
+Tamil Nadu,Coimbatore,Local Market,Wheat,Red New,Premium,30/04/2024,5805,8011,6908
+Gujarat,Ahmedabad,Main Market,Rice,Hybrid,Medium,30/04/2024,5746,10406,8076
+Gujarat,Surat,Wholesale Market,Rice,Hybrid,Non-FAQ,30/04/2024,9061,10747,9904
+Gujarat,Rajkot,Local Market,Rice,Local,Non-FAQ,30/04/2024,1831,6451,4141
+Andhra Pradesh,East Godavari,Wholesale Market,Arhar (Tur),Local,Medium,31/05/2024,3718,5853,4785
+Andhra Pradesh,Guntur,Wholesale Market,Rice,Hybrid,Medium,31/05/2024,4434,6104,5269
+Andhra Pradesh,Kurnool,Wholesale Market,Maize,Hybrid,Non-FAQ,31/05/2024,9794,12880,11337
+Maharashtra,Pune,Wholesale Market,Maize,Local,Medium,31/05/2024,1738,6412,4075
+Maharashtra,Nagpur,Main Market,Wheat,Bunny,FAQ,31/05/2024,3321,8266,5793
+Maharashtra,Nashik,Local Market,Maize,Red New,Non-FAQ,31/05/2024,2712,6863,4787
+Karnataka,Bangalore,Wholesale Market,Cotton,Hybrid,Premium,31/05/2024,3915,6406,5160
+Karnataka,Mysore,Main Market,Wheat,Local,FAQ,31/05/2024,8955,10828,9891
+Karnataka,Hubli,Main Market,Banana,Bunny,FAQ,31/05/2024,2676,4274,3475
+Tamil Nadu,Chennai,Wholesale Market,Maize,Red New,Medium,31/05/2024,3187,7057,5122
+Tamil Nadu,Madurai,Local Market,Rice,Hybrid,Premium,31/05/2024,8610,11944,10277
+Tamil Nadu,Coimbatore,Wholesale Market,Dry Chillies,Bunny,FAQ,31/05/2024,6296,7133,6714
+Gujarat,Ahmedabad,Wholesale Market,Maize,Hybrid,Non-FAQ,31/05/2024,4613,6625,5619
+Gujarat,Surat,Wholesale Market,Banana,Red New,Medium,31/05/2024,8406,12701,10553
+Gujarat,Rajkot,Main Market,Dry Chillies,Organic,FAQ,31/05/2024,3593,7084,5338
+Andhra Pradesh,East Godavari,Local Market,Dry Chillies,Local,FAQ,30/06/2024,1119,1723,1421
+Andhra Pradesh,Guntur,Main Market,Wheat,Red New,FAQ,30/06/2024,5504,10053,7778
+Andhra Pradesh,Kurnool,Wholesale Market,Rice,Hybrid,FAQ,30/06/2024,9578,12863,11220
+Maharashtra,Pune,Main Market,Rice,Organic,Non-FAQ,30/06/2024,8080,11521,9800
+Maharashtra,Nagpur,Main Market,Cotton,Local,FAQ,30/06/2024,7289,11044,9166
+Maharashtra,Nashik,Wholesale Market,Arhar (Tur),Local,Premium,30/06/2024,1579,5907,3743
+Karnataka,Bangalore,Local Market,Arhar (Tur),Red New,FAQ,30/06/2024,5353,10184,7768
+Karnataka,Mysore,Wholesale Market,Wheat,Organic,FAQ,30/06/2024,3489,6678,5083
+Karnataka,Hubli,Main Market,Rice,Organic,Medium,30/06/2024,7816,11011,9413
+Tamil Nadu,Chennai,Local Market,Maize,Bunny,Non-FAQ,30/06/2024,6328,9587,7957
+Tamil Nadu,Madurai,Wholesale Market,Dry Chillies,Red New,FAQ,30/06/2024,5846,9675,7760
+Tamil Nadu,Coimbatore,Local Market,Rice,Organic,Premium,30/06/2024,8986,12438,10712
+Gujarat,Ahmedabad,Local Market,Maize,Red New,Non-FAQ,30/06/2024,3177,4464,3820
+Gujarat,Surat,Local Market,Banana,Local,FAQ,30/06/2024,4285,7397,5841
+Gujarat,Rajkot,Wholesale Market,Arhar (Tur),Hybrid,FAQ,30/06/2024,4403,5873,5138
+Andhra Pradesh,East Godavari,Wholesale Market,Cotton,Bunny,Non-FAQ,31/07/2024,1929,2527,2228
+Andhra Pradesh,Guntur,Main Market,Rice,Organic,Medium,31/07/2024,4175,5158,4666
+Andhra Pradesh,Kurnool,Wholesale Market,Rice,Local,FAQ,31/07/2024,8723,11178,9950
+Maharashtra,Pune,Local Market,Maize,Local,Medium,31/07/2024,9144,12469,10806
+Maharashtra,Nagpur,Wholesale Market,Maize,Hybrid,Premium,31/07/2024,4882,8368,6625
+Maharashtra,Nashik,Wholesale Market,Banana,Hybrid,FAQ,31/07/2024,9611,14391,12001
+Karnataka,Bangalore,Wholesale Market,Arhar (Tur),Organic,FAQ,31/07/2024,4780,8484,6632
+Karnataka,Mysore,Local Market,Maize,Bunny,Premium,31/07/2024,9405,12944,11174
+Karnataka,Hubli,Local Market,Wheat,Bunny,Medium,31/07/2024,5817,10245,8031
+Tamil Nadu,Chennai,Local Market,Wheat,Local,FAQ,31/07/2024,6955,8187,7571
+Tamil Nadu,Madurai,Wholesale Market,Maize,Organic,Medium,31/07/2024,1688,6587,4137
+Tamil Nadu,Coimbatore,Main Market,Wheat,Organic,Premium,31/07/2024,7687,11101,9394
+Gujarat,Ahmedabad,Local Market,Maize,Hybrid,Medium,31/07/2024,4458,6869,5663
+Gujarat,Surat,Local Market,Arhar (Tur),Red New,FAQ,31/07/2024,4244,5695,4969
+Gujarat,Rajkot,Local Market,Cotton,Local,Non-FAQ,31/07/2024,5870,9184,7527
+Andhra Pradesh,East Godavari,Main Market,Arhar (Tur),Hybrid,FAQ,31/08/2024,9362,14151,11756
+Andhra Pradesh,Guntur,Wholesale Market,Wheat,Local,Premium,31/08/2024,2321,4828,3574
+Andhra Pradesh,Kurnool,Main Market,Banana,Bunny,Medium,31/08/2024,3723,5455,4589
+Maharashtra,Pune,Main Market,Wheat,Local,Non-FAQ,31/08/2024,2046,3785,2915
+Maharashtra,Nagpur,Local Market,Arhar (Tur),Red New,Non-FAQ,31/08/2024,8230,11049,9639
+Maharashtra,Nashik,Main Market,Rice,Hybrid,Premium,31/08/2024,1670,4217,2943
+Karnataka,Bangalore,Wholesale Market,Rice,Bunny,Premium,31/08/2024,9255,13276,11265
+Karnataka,Mysore,Main Market,Dry Chillies,Local,Premium,31/08/2024,3997,6783,5390
+Karnataka,Hubli,Main Market,Wheat,Local,Premium,31/08/2024,1911,6881,4396
+Tamil Nadu,Chennai,Local Market,Rice,Local,Medium,31/08/2024,1972,5166,3569
+Tamil Nadu,Madurai,Wholesale Market,Banana,Red New,Non-FAQ,31/08/2024,2414,4116,3265
+Tamil Nadu,Coimbatore,Main Market,Banana,Red New,Premium,31/08/2024,4222,8988,6605
+Gujarat,Ahmedabad,Local Market,Cotton,Local,FAQ,31/08/2024,9784,14393,12088
+Gujarat,Surat,Wholesale Market,Rice,Organic,Premium,31/08/2024,9229,12052,10640
+Gujarat,Rajkot,Local Market,Wheat,Organic,Medium,31/08/2024,8142,10237,9189
+Andhra Pradesh,East Godavari,Local Market,Cotton,Red New,Non-FAQ,30/09/2024,3368,7652,5510
+Andhra Pradesh,Guntur,Local Market,Arhar (Tur),Organic,Non-FAQ,30/09/2024,1401,3099,2250
+Andhra Pradesh,Kurnool,Local Market,Cotton,Red New,Premium,30/09/2024,9896,11009,10452
+Maharashtra,Pune,Local Market,Banana,Red New,FAQ,30/09/2024,6262,10286,8274
+Maharashtra,Nagpur,Local Market,Dry Chillies,Hybrid,Medium,30/09/2024,6821,11714,9267
+Maharashtra,Nashik,Wholesale Market,Rice,Local,Non-FAQ,30/09/2024,6315,7286,6800
+Karnataka,Bangalore,Wholesale Market,Maize,Organic,FAQ,30/09/2024,8668,11074,9871
+Karnataka,Mysore,Main Market,Maize,Red New,Medium,30/09/2024,3683,7535,5609
+Karnataka,Hubli,Main Market,Arhar (Tur),Red New,Medium,30/09/2024,3629,8438,6033
+Tamil Nadu,Chennai,Wholesale Market,Banana,Hybrid,Non-FAQ,30/09/2024,8652,12688,10670
+Tamil Nadu,Madurai,Main Market,Cotton,Local,Premium,30/09/2024,1526,4467,2996
+Tamil Nadu,Coimbatore,Main Market,Cotton,Hybrid,Medium,30/09/2024,1600,6414,4007
+Gujarat,Ahmedabad,Wholesale Market,Wheat,Local,Medium,30/09/2024,3125,7997,5561
+Gujarat,Surat,Wholesale Market,Cotton,Organic,Premium,30/09/2024,6463,10117,8290
+Gujarat,Rajkot,Main Market,Dry Chillies,Bunny,Medium,30/09/2024,3165,5225,4195
+Andhra Pradesh,East Godavari,Wholesale Market,Wheat,Local,Non-FAQ,31/10/2024,2874,5109,3991
+Andhra Pradesh,Guntur,Local Market,Maize,Red New,FAQ,31/10/2024,5419,6195,5807
+Andhra Pradesh,Kurnool,Local Market,Cotton,Bunny,Medium,31/10/2024,9161,11621,10391
+Maharashtra,Pune,Local Market,Banana,Local,Premium,31/10/2024,4946,9838,7392
+Maharashtra,Nagpur,Wholesale Market,Maize,Local,Non-FAQ,31/10/2024,9869,10716,10292
+Maharashtra,Nashik,Local Market,Cotton,Bunny,Medium,31/10/2024,8849,13195,11022
+Karnataka,Bangalore,Main Market,Banana,Organic,Medium,31/10/2024,4721,5487,5104
+Karnataka,Mysore,Main Market,Wheat,Bunny,Premium,31/10/2024,1660,3280,2470
+Karnataka,Hubli,Main Market,Maize,Red New,FAQ,31/10/2024,9386,11385,10385
+Tamil Nadu,Chennai,Wholesale Market,Wheat,Organic,Non-FAQ,31/10/2024,1190,2828,2009
+Tamil Nadu,Madurai,Wholesale Market,Maize,Organic,Premium,31/10/2024,9323,13751,11537
+Tamil Nadu,Coimbatore,Main Market,Cotton,Bunny,FAQ,31/10/2024,4193,7024,5608
+Gujarat,Ahmedabad,Local Market,Banana,Red New,Premium,31/10/2024,2616,3329,2972
+Gujarat,Surat,Wholesale Market,Dry Chillies,Red New,Premium,31/10/2024,5702,7866,6784
+Gujarat,Rajkot,Local Market,Maize,Red New,Premium,31/10/2024,2091,6370,4230
+Andhra Pradesh,East Godavari,Wholesale Market,Cotton,Hybrid,Premium,30/11/2024,3057,4128,3592
+Andhra Pradesh,Guntur,Local Market,Wheat,Bunny,Medium,30/11/2024,1633,5256,3444
+Andhra Pradesh,Kurnool,Main Market,Banana,Organic,Non-FAQ,30/11/2024,3425,5352,4388
+Maharashtra,Pune,Main Market,Cotton,Local,Non-FAQ,30/11/2024,4398,9050,6724
+Maharashtra,Nagpur,Wholesale Market,Cotton,Local,FAQ,30/11/2024,5774,7444,6609
+Maharashtra,Nashik,Main Market,Cotton,Bunny,FAQ,30/11/2024,2081,2811,2446
+Karnataka,Bangalore,Local Market,Maize,Local,Premium,30/11/2024,9950,12772,11361
+Karnataka,Mysore,Main Market,Rice,Red New,Medium,30/11/2024,8080,11061,9570
+Karnataka,Hubli,Wholesale Market,Dry Chillies,Organic,FAQ,30/11/2024,994,3166,2080
+Tamil Nadu,Chennai,Local Market,Wheat,Organic,Medium,30/11/2024,7910,11214,9562
+Tamil Nadu,Madurai,Wholesale Market,Cotton,Red New,Non-FAQ,30/11/2024,3701,8116,5908
+Tamil Nadu,Coimbatore,Main Market,Wheat,Hybrid,Medium,30/11/2024,3783,7359,5571
+Gujarat,Ahmedabad,Main Market,Dry Chillies,Red New,Medium,30/11/2024,2379,6171,4275
+Gujarat,Surat,Wholesale Market,Arhar (Tur),Hybrid,Premium,30/11/2024,4932,6942,5937
+Gujarat,Rajkot,Main Market,Maize,Hybrid,Non-FAQ,30/11/2024,5124,10036,7580
+Andhra Pradesh,East Godavari,Local Market,Wheat,Red New,Medium,31/12/2024,3418,4461,3939
+Andhra Pradesh,Guntur,Local Market,Maize,Hybrid,Non-FAQ,31/12/2024,6892,8997,7944
+Andhra Pradesh,Kurnool,Main Market,Rice,Bunny,Medium,31/12/2024,1360,4815,3087
+Maharashtra,Pune,Main Market,Maize,Hybrid,FAQ,31/12/2024,7015,8524,7769
+Maharashtra,Nagpur,Main Market,Wheat,Bunny,FAQ,31/12/2024,1091,5057,3074
+Maharashtra,Nashik,Wholesale Market,Arhar (Tur),Local,Non-FAQ,31/12/2024,8193,11076,9634
+Karnataka,Bangalore,Wholesale Market,Dry Chillies,Local,Medium,31/12/2024,1794,5385,3589
+Karnataka,Mysore,Main Market,Rice,Local,Medium,31/12/2024,9391,12867,11129
+Karnataka,Hubli,Wholesale Market,Dry Chillies,Organic,Non-FAQ,31/12/2024,9687,13790,11738
+Tamil Nadu,Chennai,Main Market,Arhar (Tur),Bunny,Non-FAQ,31/12/2024,2017,5812,3914
+Tamil Nadu,Madurai,Main Market,Dry Chillies,Red New,Premium,31/12/2024,7751,10585,9168
+Tamil Nadu,Coimbatore,Main Market,Cotton,Local,Premium,31/12/2024,774,2120,1447
+Gujarat,Ahmedabad,Main Market,Dry Chillies,Hybrid,Premium,31/12/2024,8585,13216,10900
+Gujarat,Surat,Wholesale Market,Maize,Bunny,FAQ,31/12/2024,7352,10287,8819
+Gujarat,Rajkot,Wholesale Market,Cotton,Red New,Premium,31/12/2024,7782,10090,8936

@@ -1,0 +1,13 @@
+{
+    "name": "crop-recommendation",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "crop-recommendation": "file:",
+        "csv-parse": "^5.5.0",
+        "express": "^4.17.1"
+    }
+}

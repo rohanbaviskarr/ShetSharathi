@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">पिकाची शिफारस - शेतसारथी</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js (optional, kept for consistency) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Bootstrap Icons (for potential use) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles from Edu-Farm -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7e8 0%, #c7e2b2 100%);
+            margin: 0;
+            padding-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 100, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar-brand h3 {
+            margin: 0;
+            font-weight: 700;
+            color: #008000;
+        }
+        .btn-success {
+            background-color: #4a704a;
+            border-color: #4a704a;
+        }
+        .btn-success:hover {
+            background-color: #2e5e2e;
+            border-color: #2e5e2e;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px 20px;
+        }
+        .container {
+            background: rgba(255, 245, 224, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 100, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            color: #2e5e2e;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .form-group label {
+            color: #3c4f3c;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        select, input[type="number"], input[type="range"] {
+            padding: 12px 15px;
+            border: 2px solid #8a9a5b;
+            border-radius: 8px;
+            background-color: #fffdf5;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        select:focus, input[type="number"]:focus {
+            border-color: #4a704a;
+            box-shadow: 0 0 5px rgba(74, 112, 74, 0.5);
+            outline: none;
+        }
+        .form-range {
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #4a704a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2e5e2e;
+            transform: scale(1.05);
+        }
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fffdf5;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+            text-align: left;
+            display: none;
+            font-size: 1.2em;
+        }
+        .error-box {
+            background: #e0ffe0;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            margin-top: 20px;
+            color: #2e5e2e;
+            font-weight: bold;
+        }
+        footer {
+            background: #2e5e2e;
+            color: #fffdf5;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+        #demandValue {
+            display: inline-block;
+            margin-left: 10px;
+            color: #2e5e2e;
+            font-weight: bold;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            .main-content {
+                padding: 20px 10px;
+            }
+            select, input, button {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light py-1">
+            <div class="container-fluid" style="max-width: 1200px; padding: 0 20px;">
+                <a class="navbar-brand me-2" href="#"><h3 id="headerTitle">शेतसारथी</h3></a>
+                <div class="d-flex align-items-center ms-auto">
+                    <select id="languageSelect" class="form-select me-2" onchange="toggleLanguage()">
+                        <option value="en">English</option>
+                        <option value="mr" selected>मराठी</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h2 id="appTitle">पिकाची शिफारस</h2>
+            <div class="form-group">
+                <label for="state" id="stateLabel">राज्य निवडा</label>
+                <select id="state" class="form-select"></select>
+            </div>
+            <div class="form-group">
+                <label for="season" id="seasonLabel">ऋतू निवडा</label>
+                <select id="season" class="form-select"></select>
+            </div>
+            <div class="form-group">
+                <label for="soilType" id="soilTypeLabel">जमिनीचा प्रकार निवडा</label>
+                <select id="soilType" class="form-select"></select>
+            </div>
+            <div class="form-group">
+                <label for="rainfall" id="rainfallLabel">पर्जन्यमान (मिमी)</label>
+                <input type="number" id="rainfall" min="0" max="2000" step="10" value="0">
+            </div>
+            <div class="form-group">
+                <label for="temperature" id="temperatureLabel">तापमान (°से)</label>
+                <input type="number" id="temperature" min="0" max="50" step="1" value="0">
+            </div>
+            <div class="form-group">
+                <label for="marketPrice" id="marketPriceLabel">बाजार भाव (₹/किलो)</label>
+                <input type="number" id="marketPrice" min="0" max="5000" step="10" value="0">
+            </div>
+            <div class="form-group">
+                <label for="demandFactor" id="demandFactorLabel">मागणी घटक (१-१००)</label>
+                <input type="range" id="demandFactor" class="form-range" min="1" max="100" value="50">
+                <span id="demandValue">५०</span>
+            </div>
+            <button id="recommendBtn" onclick="recommendCrop()" class="btn btn-success">शिफारस करा</button>
+            <div id="result" class="result"></div>
+            <div id="error" class="error-box"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p id="footerText">© 2025 शेतसारथी. सर्व हक्क राखीव.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Translations Object (Updated with Hindi)
+        const translations = {
+            mr: {
+                headerTitle: "शेतसारथी",
+                appTitle: "पिकाची शिफारस",
+                pageTitle: "पिकाची शिफारस - शेतसारथी",
+                stateLabel: "राज्य निवडा",
+                seasonLabel: "ऋतू निवडा",
+                soilTypeLabel: "जमिनीचा प्रकार निवडा",
+                rainfallLabel: "पर्जन्यमान (मिमी)",
+                temperatureLabel: "तापमान (°से)",
+                marketPriceLabel: "बाजार भाव (₹/किलो)",
+                demandFactorLabel: "मागणी घटक (१-१००)",
+                recommendBtn: "शिफारस करा",
+                errorSelect: "कृपया सर्व पर्याय निवडा!",
+                errorFetch: "शिफारस मिळवताना त्रुटी!",
+                errorLoad: "डेटा लोड करताना त्रुटी!",
+                loading: "शिफारस लोड होत आहे...",
+                resultPrefix: "🌱 शिफारस केलेले पिक: ",
+                footerText: "© 2025 शेतसारथी. सर्व हक्क राखीव."
+            },
+            en: {
+                headerTitle: "Shetsarathi",
+                appTitle: "Crop Recommendation",
+                pageTitle: "Crop Recommendation - Shetsarathi",
+                stateLabel: "Select State",
+                seasonLabel: "Select Season",
+                soilTypeLabel: "Select Soil Type",
+                rainfallLabel: "Rainfall (mm)",
+                temperatureLabel: "Temperature (°C)",
+                marketPriceLabel: "Market Price (₹/kg)",
+                demandFactorLabel: "Demand Factor (1-100)",
+                recommendBtn: "Recommend",
+                errorSelect: "Please select all options!",
+                errorFetch: "Error fetching recommendation!",
+                errorLoad: "Error loading data!",
+                loading: "Loading recommendation...",
+                resultPrefix: "🌱 Recommended Crop: ",
+                footerText: "© 2025 Shetsarathi. All rights reserved."
+            },
+            hi: {
+                headerTitle: "शेतसारथी",
+                appTitle: "फसल की सिफारिश",
+                pageTitle: "फसल की सिफारिश - शेतसारथी",
+                stateLabel: "राज्य चुनें",
+                seasonLabel: "मौसम चुनें",
+                soilTypeLabel: "मिट्टी का प्रकार चुनें",
+                rainfallLabel: "वर्षा (मिमी)",
+                temperatureLabel: "तापमान (°से)",
+                marketPriceLabel: "बाजार मूल्य (₹/किलो)",
+                demandFactorLabel: "मांग कारक (१-१००)",
+                recommendBtn: "सिफारिश करें",
+                errorSelect: "कृपया सभी विकल्प चुनें!",
+                errorFetch: "सिफारिश प्राप्त करने में त्रुटी!",
+                errorLoad: "डेटा लोड करने में त्रुटी!",
+                loading: "सिफारिश लोड हो रही है...",
+                resultPrefix: "🌱 अनुशंसित फसल: ",
+                footerText: "© 2025 शेतसारथी। सर्वाधिकार सुरक्षित।"
+            }
+        };
+
+        // Utility Functions
+        function convertToLanguageNumbers(text, lang) {
+            if (lang === "mr") {
+                const marathiDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+                return text.replace(/[0-9]/g, digit => marathiDigits[digit]);
+            } else if (lang === "hi") {
+                const hindiDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+                return text.replace(/[0-9]/g, digit => hindiDigits[digit]);
+            }
+            return text; // English uses standard digits
+        }
+
+        function getCurrentLanguage() {
+            return document.getElementById('languageSelect').value || 'mr';
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.innerText = message;
+            errorDiv.style.display = "block";
+        }
+
+        function hideError() {
+            document.getElementById('error').style.display = "none";
+        }
+
+        // Initialization Function
+        async function initializePage() {
+            const lang = getCurrentLanguage();
+            const t = translations[lang];
+            try {
+                const response = await fetch('/options');
+                const data = await response.json();
+
+                populateDropdown('state', data.states, t.stateLabel);
+                populateDropdown('season', data.seasons, t.seasonLabel);
+                populateDropdown('soilType', data.soilTypes, t.soilTypeLabel);
+
+                updateUI(lang);
+
+                // Update demand factor display
+                const demandFactor = document.getElementById('demandFactor');
+                const demandValue = document.getElementById('demandValue');
+                demandFactor.oninput = () => {
+                    demandValue.textContent = convertToLanguageNumbers(demandFactor.value, lang);
+                };
+                demandValue.textContent = convertToLanguageNumbers(demandFactor.value, lang);
+            } catch (error) {
+                console.error("Error loading options:", error);
+                showError(t.errorLoad);
+            }
+        }
+
+        function populateDropdown(elementId, items, placeholder) {
+            const select = document.getElementById(elementId);
+            select.innerHTML = `<option value="">${placeholder}</option>`;
+            items.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.text = item;
+                select.appendChild(option);
+            });
+        }
+
+        // Language Toggle
+        function updateUI(lang) {
+            const t = translations[lang];
+            document.getElementById('pageTitle').innerText = t.pageTitle;
+            document.getElementById('headerTitle').innerText = t.headerTitle;
+            document.getElementById('appTitle').innerText = t.appTitle;
+            document.getElementById('stateLabel').innerText = t.stateLabel;
+            document.getElementById('state').options[0].text = t.stateLabel;
+            document.getElementById('seasonLabel').innerText = t.seasonLabel;
+            document.getElementById('season').options[0].text = t.seasonLabel;
+            document.getElementById('soilTypeLabel').innerText = t.soilTypeLabel;
+            document.getElementById('soilType').options[0].text = t.soilTypeLabel;
+            document.getElementById('rainfallLabel').innerText = t.rainfallLabel;
+            document.getElementById('temperatureLabel').innerText = t.temperatureLabel;
+            document.getElementById('marketPriceLabel').innerText = t.marketPriceLabel;
+            document.getElementById('demandFactorLabel').innerText = t.demandFactorLabel;
+            document.getElementById('recommendBtn').innerText = t.recommendBtn;
+            document.getElementById('footerText').innerText = t.footerText;
+
+            // Update demand factor value dynamically
+            const demandFactor = document.getElementById('demandFactor');
+            const demandValue = document.getElementById('demandValue');
+            demandValue.textContent = convertToLanguageNumbers(demandFactor.value, lang);
+
+            // Update result if already displayed
+            const resultDiv = document.getElementById('result');
+            if (resultDiv.style.display === "block" && resultDiv.innerHTML.includes("Loading") === false) {
+                const currentCrop = resultDiv.querySelector('strong')?.textContent || '';
+                resultDiv.innerHTML = `<p class="text-success">${t.resultPrefix}<strong>${currentCrop}</strong></p>`;
+            }
+        }
+
+        function toggleLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            updateUI(lang);
+        }
+
+        // Crop Recommendation Logic
+        async function recommendCrop() {
+            const state = document.getElementById('state').value;
+            const season = document.getElementById('season').value;
+            const soilType = document.getElementById('soilType').value;
+            const rainfall = document.getElementById('rainfall').value;
+            const temperature = document.getElementById('temperature').value;
+            const marketPrice = document.getElementById('marketPrice').value;
+            const demandFactor = document.getElementById('demandFactor').value;
+
+            const lang = getCurrentLanguage();
+            const t = translations[lang];
+            const resultDiv = document.getElementById('result');
+
+            resultDiv.style.display = "none";
+            hideError();
+
+            if (!state || !season || !soilType) {
+                showError(t.errorSelect);
+                return;
+            }
+
+            resultDiv.innerHTML = `<p>${t.loading}</p>`;
+            resultDiv.style.display = "block";
+
+            try {
+                const response = await fetch('/recommend', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ state, season, soilType, rainfall, temperature, marketPrice, demandFactor })
+                });
+                const result = await response.json();
+
+                if (result.error) {
+                    showError(result.error);
+                    resultDiv.style.display = "none";
+                } else {
+                    resultDiv.innerHTML = `<p class="text-success">${t.resultPrefix}<strong>${result.crop}</strong></p>`;
+                    resultDiv.style.display = "block";
+                }
+            } catch (error) {
+                console.error("Error fetching recommendation:", error);
+                showError(t.errorFetch);
+                resultDiv.style.display = "none";
+            }
+        }
+
+        // Initialize on Load
+        window.onload = () => {
+            initializePage();
+        };
+    </script>
+</body>
+</html>

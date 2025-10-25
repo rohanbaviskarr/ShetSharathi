@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu-Farm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7e8 0%, #c7e2b2 100%);
+            margin: 0;
+            padding-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 100, 0, 0.1);
+        }
+        .navbar-brand h3 {
+            margin: 0;
+            font-weight: 700;
+            color: #008000;
+        }
+        .btn-success {
+            background-color: #4a704a;
+            border-color: #4a704a;
+        }
+        .btn-success:hover {
+            background-color: #2e5e2e;
+            border-color: #2e5e2e;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px 20px;
+        }
+        .container {
+            background: rgba(255, 245, 224, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 100, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            color: #2e5e2e;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        input[type="text"] {
+            padding: 12px 15px;
+            border: 2px solid #8a9a5b;
+            border-radius: 8px;
+            background-color: #fffdf5;
+        }
+        input[type="text"]:focus {
+            border-color: #4a704a;
+            box-shadow: 0 0 5px rgba(74, 112, 74, 0.5);
+            outline: none;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        .options label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #3c4f3c;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #4a704a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #2e5e2e;
+            transform: scale(1.05);
+        }
+        .content-section {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fffdf5;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+            text-align: left;
+        }
+        .content-section h2 {
+            color: #2e5e2e;
+            margin-bottom: 15px;
+        }
+        iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border-radius: 8px;
+        }
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-question label {
+            display: block;
+            margin: 5px 0;
+            color: #3c4f3c;
+        }
+        #quizResults {
+            background: #e0ffe0;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .score-display {
+            font-weight: bold;
+            color: #2e5e2e;
+            margin: 10px 0;
+        }
+        .recommendations {
+            color: #4a704a;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        #performanceChart {
+            max-width: 300px;
+            height: 200px;
+            margin: 15px auto;
+        }
+        #detailedResults {
+            white-space: pre-wrap;
+            font-size: 0.9em;
+            max-height: 150px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: #2e5e2e;
+            color: #fffdf5;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+        .input-group {
+            position: relative;
+        }
+        #voiceBtn {
+            padding: 10px;
+            background-color: #4a704a;
+            border: none;
+            border-radius: 8px;
+            margin-left: 10px;
+        }
+        #voiceBtn.listening {
+            background-color: #d9534f;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            .options {
+                flex-direction: column;
+                align-items: center;
+            }
+            #performanceChart {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light py-1">
+            <div class="container-fluid" style="max-width: 1200px; padding: 0 20px;">
+                <a class="navbar-brand me-2" href="#">
+                    <h3 id="brandTitle">Shetsarathi</h3>
+                </a>
+                <div class="d-flex align-items-center ms-auto">
+                    <select id="languageSelect" class="form-select me-2" onchange="toggleLanguage()">
+                        <option value="en">English</option>
+                        <option value="mr">मराठी</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h1 id="pageTitle">Edu-Farm</h1>
+            <div class="d-flex gap-3 mb-3">
+                <div class="input-group">
+                    <input type="text" id="crop" class="form-control" placeholder="Enter crop name (e.g., rice)">
+                    <button id="voiceBtn" title="Speak crop name"><i class="bi bi-mic"></i></button>
+                </div>
+                <select id="videoType" class="form-select" style="max-width: 200px;">
+                    <option value="normal">Normal Video</option>
+                    <option value="animated">Animated Video</option>
+                </select>
+            </div>
+            <div class="options">
+                <label><input type="checkbox" id="showVideo" checked> <span id="videoLabel">Show Video</span></label>
+                <label><input type="checkbox" id="showSummary" checked> <span id="summaryLabel">Show Summary</span></label>
+                <label><input type="checkbox" id="showQuiz" checked> <span id="quizLabel">Show Quiz</span></label>
+            </div>
+            <button id="getContentBtn" onclick="fetchVideo()">Get Content</button>
+
+            <div id="videoSection" class="content-section" style="display: none;">
+                <h2 id="videoTitle">Video Tutorial</h2>
+                <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div id="summarySection" class="content-section" style="display: none;">
+                <h2 id="summaryTitle">Summary</h2>
+                <p id="summary"></p>
+            </div>
+
+            <div id="quizSection" class="content-section" style="display: none;">
+                <h2 id="quizTitle">Quiz</h2>
+                <div class="quiz" id="quizContainer">
+                    <form id="quizForm"></form>
+                    <button id="submitQuizBtn" onclick="submitQuiz()" style="display: none;">Submit Quiz</button>
+                </div>
+                <h2 id="resultsTitle">Quiz Results</h2>
+                <div id="quizResults">
+                    <pre id="detailedResults"></pre>
+                    <div id="scoreDisplay" class="score-display"></div>
+                    <canvas id="performanceChart"></canvas>
+                    <div id="recommendations" class="recommendations"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p id="footerText">© 2025 Shetsarathi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                brand: "Shetsarathi",
+                title: "Edu-Farm",
+                placeholder: "Enter crop name (e.g., rice)",
+                videoLabel: "Show Video",
+                summaryLabel: "Show Summary",
+                quizLabel: "Show Quiz",
+                button: "Get Content",
+                videoTitle: "Video Tutorial",
+                summaryTitle: "Summary",
+                quizTitle: "Quiz",
+                submitQuiz: "Submit Quiz",
+                resultsTitle: "Quiz Results",
+                scoreText: "Score",
+                percentageText: "Percentage",
+                recommendationsText: "Recommended Topics for Improvement",
+                footer: "© 2025 Shetsarathi. All rights reserved.",
+                error: "Enter a crop name!",
+                optionError: "Please select at least one option!",
+                fetchError: "Failed to fetch data",
+                quizError: "Please answer at least one question!",
+                chartCorrect: "Correct",
+                chartIncorrect: "Incorrect",
+                chartTitle: "Quiz Performance",
+                voicePrompt: "Please speak the crop name."
+            },
+            mr: {
+                brand: "शेतसारथी",
+                title: "एज्यू-फार्म",
+                placeholder: "पीक नाव प्रविष्ट करा (उदा. तांदूळ)",
+                videoLabel: "व्हिडिओ दाखवा",
+                summaryLabel: "सारांश दाखवा",
+                quizLabel: "प्रश्नमंजुषा दाखवा",
+                button: "सामग्री मिळवा",
+                videoTitle: "व्हिडिओ ट्यूटोरियल",
+                summaryTitle: "सारांश",
+                quizTitle: "प्रश्नमंजुषा",
+                submitQuiz: "प्रश्नमंजुषा सादर करा",
+                resultsTitle: "प्रश्नमंजुषा निकाल",
+                scoreText: "गुण",
+                percentageText: "टक्केवारी",
+                recommendationsText: "सुधारणेसाठी शिफारस केलेले विषय",
+                footer: "© २०२५ शेतसारथी. सर्व हक्क राखीव.",
+                error: "पीक नाव प्रविष्ट करा!",
+                optionError: "कृपया किमान एक पर्याय निवडा!",
+                fetchError: "डेटा मिळवण्यात अयशस्वी",
+                quizError: "कृपया किमान एक प्रश्नाचे उत्तर द्या!",
+                chartCorrect: "बरोबर",
+                chartIncorrect: "चुकीचे",
+                chartTitle: "प्रश्नमंजुषा कामगिरी",
+                voicePrompt: "कृपया पीक नाव बोला."
+            },
+            hi: {
+                brand: "शेतसारथी",
+                title: "एज्यू-फार्म",
+                placeholder: "फसल का नाम दर्ज करें (उदा. चावल)",
+                videoLabel: "वीडियो दिखाएं",
+                summaryLabel: "सारांश दिखाएं",
+                quizLabel: "क्विज दिखाएं",
+                button: "सामग्री प्राप्त करें",
+                videoTitle: "वीडियो ट्यूटोरियल",
+                summaryTitle: "सारांश",
+                quizTitle: "क्विज",
+                submitQuiz: "क्विज जमा करें",
+                resultsTitle: "क्विज परिणाम",
+                scoreText: "अंक",
+                percentageText: "प्रतिशत",
+                recommendationsText: "सुधार के लिए अनुशंसित विषय",
+                footer: "© २०२५ शेतसारथी। सर्वाधिकार सुरक्षित।",
+                error: "फसल का नाम दर्ज करें!",
+                optionError: "कृपया कम से कम एक विकल्प चुनें!",
+                fetchError: "डेटा प्राप्त करने में विफल",
+                quizError: "कृपया कम से कम एक प्रश्न का उत्तर दें!",
+                chartCorrect: "सही",
+                chartIncorrect: "गलत",
+                chartTitle: "क्विज प्रदर्शन",
+                voicePrompt: "कृपया फसल का नाम बोलें।"
+            }
+        };
+
+        function toggleLanguage() {
+            const lang = document.getElementById("languageSelect").value;
+            const t = translations[lang];
+            
+            document.getElementById("brandTitle").innerText = t.brand;
+            document.getElementById("pageTitle").innerText = t.title;
+            document.getElementById("crop").placeholder = t.placeholder;
+            document.getElementById("videoLabel").innerText = t.videoLabel;
+            document.getElementById("summaryLabel").innerText = t.summaryLabel;
+            document.getElementById("quizLabel").innerText = t.quizLabel;
+            document.getElementById("getContentBtn").innerText = t.button;
+            document.getElementById("videoTitle").innerText = t.videoTitle;
+            document.getElementById("summaryTitle").innerText = t.summaryTitle;
+            document.getElementById("quizTitle").innerText = t.quizTitle;
+            document.getElementById("submitQuizBtn").innerText = t.submitQuiz;
+            document.getElementById("resultsTitle").innerText = t.resultsTitle;
+            document.getElementById("footerText").innerText = t.footer;
+            document.getElementById("voiceBtn").title = t.voicePrompt;
+
+            const quizResults = document.getElementById("quizResults");
+            if (quizResults.style.display === "block" && quizResults.dataset.results) {
+                displayResults(JSON.parse(quizResults.dataset.results), lang);
+            }
+        }
+
+        let quizId = null;
+        const userAnswers = {};
+        let performanceChart = null;
+
+        // Voice Input Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        function startVoiceInput() {
+            const lang = document.getElementById("languageSelect").value;
+            const t = translations[lang];
+            const voiceBtn = document.getElementById("voiceBtn");
+            const cropInput = document.getElementById("crop");
+
+            recognition.lang = lang === "mr" ? "mr-IN" : lang === "hi" ? "hi-IN" : "en-US";
+            console.log("Speech Recognition Language:", recognition.lang);
+
+            voiceBtn.classList.add("listening");
+            recognition.start();
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript.trim();
+                console.log("Voice Input:", transcript);
+                cropInput.value = transcript;
+                voiceBtn.classList.remove("listening");
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Speech Recognition Error:", event.error);
+                alert(`${t.voicePrompt} Error: ${event.error}`);
+                voiceBtn.classList.remove("listening");
+            };
+
+            recognition.onend = () => {
+                voiceBtn.classList.remove("listening");
+            };
+        }
+
+        document.getElementById("voiceBtn").addEventListener("click", startVoiceInput);
+
+        async function fetchVideo() {
+            const lang = document.getElementById("languageSelect").value;
+            const t = translations[lang];
+            const crop = document.getElementById("crop").value;
+            const videoType = document.getElementById("videoType").value;
+
+            if (!crop) return alert(t.error);
+
+            const showVideo = document.getElementById("showVideo").checked;
+            const showSummary = document.getElementById("showSummary").checked;
+            const showQuiz = document.getElementById("showQuiz").checked;
+
+            if (!showVideo && !showSummary && !showQuiz) return alert(t.optionError);
+
+            try {
+                const res = await fetch(`/video?crop=${encodeURIComponent(crop)}&videoType=${videoType}&lang=${lang}`);
+                const data = await res.json();
+                if (data.error) return alert(data.error);
+
+                document.getElementById("videoFrame").src = "";
+                document.getElementById("summary").innerText = "";
+                document.getElementById("quizForm").innerHTML = "";
+                document.getElementById("submitQuizBtn").style.display = "none";
+                document.getElementById("quizResults").style.display = "none";
+                document.getElementById("videoSection").style.display = "none";
+                document.getElementById("summarySection").style.display = "none";
+                document.getElementById("quizSection").style.display = "none";
+
+                if (showVideo && data.videoId) {
+                    document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${data.videoId}`;
+                    document.getElementById("videoSection").style.display = "block";
+                } else if (showVideo) {
+                    document.getElementById("summary").innerText = data.description;
+                    document.getElementById("summarySection").style.display = "block";
+                }
+
+                if (showSummary) {
+                    document.getElementById("summary").innerText = data.summary || "No summary available";
+                    document.getElementById("summarySection").style.display = "block";
+                }
+
+                if (showQuiz) {
+                    quizId = data.quizId;
+                    const quizForm = document.getElementById("quizForm");
+                    if (!data.quiz || data.quiz.includes("unavailable")) {
+                        quizForm.innerHTML = "<p>No quiz available</p>";
+                    } else {
+                        const questions = data.quiz.split("\n\n");
+                        questions.forEach((q, i) => {
+                            const lines = q.split("\n");
+                            const questionDiv = document.createElement("div");
+                            questionDiv.className = "quiz-question";
+                            questionDiv.innerHTML = `<p>${lines[0]}</p>`;
+                            lines.slice(1).forEach(opt => {
+                                const label = document.createElement("label");
+                                const optionLetter = opt[0];
+                                label.innerHTML = `<input type="radio" name="q${i}" value="${optionLetter}"> ${opt}`;
+                                questionDiv.appendChild(label);
+                            });
+                            quizForm.appendChild(questionDiv);
+                        });
+                        document.getElementById("submitQuizBtn").style.display = "inline-block";
+                    }
+                    document.getElementById("quizSection").style.display = "block";
+                }
+            } catch (error) {
+                alert(`${t.fetchError}: ${error.message}`);
+            }
+        }
+
+        function renderPieChart(correct, incorrect, lang) {
+            const t = translations[lang];
+            const ctx = document.getElementById("performanceChart").getContext("2d");
+            if (performanceChart) {
+                performanceChart.destroy();
+                console.log("Destroyed previous chart instance");
+            }
+
+            try {
+                performanceChart = new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: [t.chartCorrect, t.chartIncorrect],
+                        datasets: [{
+                            data: [correct, incorrect],
+                            backgroundColor: ["#4a704a", "#d9534f"],
+                            borderColor: ["#2e5e2e", "#c9302c"],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: "top", labels: { color: "#2e5e2e" } },
+                            title: { display: true, text: t.chartTitle, color: "#2e5e2e", font: { size: 14 } }
+                        }
+                    }
+                });
+                console.log("Pie Chart Rendered Successfully:", { correct, incorrect });
+            } catch (error) {
+                console.error("Pie Chart Error:", error);
+                document.getElementById("performanceChart").style.display = "none";
+                document.getElementById("scoreDisplay").innerText += `\n(${t.chartTitle} unavailable)`;
+            }
+        }
+
+        function displayResults(data, lang) {
+            const t = translations[lang];
+            const quizResults = document.getElementById("quizResults");
+
+            console.log("Displaying Results:", data);
+
+            document.getElementById("detailedResults").innerText = data.results || "No detailed results available";
+            document.getElementById("scoreDisplay").innerText = `${t.scoreText}: ${data.score} (${t.percentageText}: ${data.percentage}%)`;
+
+            const [correct, total] = data.score.split("/").map(Number);
+            const incorrect = total - correct;
+            console.log("Score Parsed:", { correct, total, incorrect });
+
+            setTimeout(() => renderPieChart(correct, incorrect, lang), 100);
+
+            const recommendationsDiv = document.getElementById("recommendations");
+            if (data.recommendations) {
+                recommendationsDiv.innerText = `${t.recommendationsText}:\n${data.recommendations}`;
+                console.log("Recommendations Displayed:", data.recommendations);
+            } else {
+                recommendationsDiv.innerText = `${t.recommendationsText}: No specific recommendations available.`;
+                console.log("No recommendations provided by server");
+            }
+
+            quizResults.dataset.results = JSON.stringify(data);
+            quizResults.style.display = "block";
+        }
+
+        async function submitQuiz() {
+            const lang = document.getElementById("languageSelect").value;
+            const t = translations[lang];
+
+            Object.keys(userAnswers).forEach(key => delete userAnswers[key]);
+
+            document.querySelectorAll("input[type=radio]:checked").forEach(input => {
+                const qIndex = parseInt(input.name.replace("q", ""), 10);
+                const qNum = `Q${qIndex + 1}`;
+                userAnswers[qNum] = input.value.toLowerCase();
+            });
+
+            console.log("Client-Side Answers:", userAnswers);
+
+            if (Object.keys(userAnswers).length === 0) return alert(t.quizError);
+
+            try {
+                const res = await fetch("/submit-quiz", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ quizId, userAnswers, lang })
+                });
+                const data = await res.json();
+                if (data.error) return alert(data.error);
+
+                displayResults(data, lang);
+                document.getElementById("submitQuizBtn").style.display = "none";
+            } catch (error) {
+                alert(`${t.fetchError}: ${error.message}`);
+            }
+        }
+
+        window.onload = () => {
+            toggleLanguage();
+            if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+                document.getElementById("voiceBtn").style.display = "none";
+                console.warn("Speech Recognition not supported in this browser.");
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</body>
+</html>

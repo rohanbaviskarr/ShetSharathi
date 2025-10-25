@@ -1,0 +1,255 @@
+/* public/css/style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7e8 0%, #c7e2b2 100%);
+  margin: 0;
+  padding-top: 70px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  box-shadow: 0 2px 10px rgba(0, 100, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand h3 {
+  margin: 0;
+  font-weight: 700;
+  color: #008000;
+}
+
+/* Language Dropdown Styling */
+.language-dropdown {
+  position: relative;
+}
+
+#languageSelect {
+  padding: 10px 30px 10px 15px; /* Extra padding on right for dropdown arrow */
+  border: 2px solid #4a704a;
+  border-radius: 8px;
+  font-size: 1.1em;
+  background-color: #fffdf5;
+  color: #2e5e2e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  appearance: none; /* Remove default dropdown arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%232e5e2e" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+#languageSelect:hover,
+#languageSelect:focus {
+  border-color: #2e5e2e;
+  background-color: #e9f5e9;
+  outline: none;
+}
+
+.btn-success {
+  background-color: #4a704a;
+  border-color: #4a704a;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-success:hover {
+  background-color: #2e5e2e;
+  border-color: #2e5e2e;
+  transform: scale(1.05);
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+  margin-top: 70px;
+}
+
+.container {
+  background: rgba(255, 245, 224, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 100, 0, 0.2);
+}
+
+h2 {
+  color: #2e5e2e;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+  z-index: 1;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group label {
+  font-weight: 500;
+  min-width: 150px;
+  color: #2e5e2e;
+}
+
+input, select, button {
+  padding: 12px 15px;
+  border: 2px solid #8a9a5b;
+  border-radius: 8px;
+  font-size: 1em;
+  background-color: #fffdf5;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.results-section {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fffdf5;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.results, .status {
+  margin: 15px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.results h3 {
+  color: #2e5e2e;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-bottom: 2px solid #2e5e2e;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.route-details, .weather-details, .warehouse-list {
+  display: grid;
+  gap: 10px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #4a704a;
+  margin-bottom: 15px;
+}
+
+.route-details p, .weather-details p, .warehouse-list div {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  color: #3c4f3c;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.route-details p:hover, .weather-details p:hover, .warehouse-list div:hover {
+  transform: translateX(5px);
+  background-color: #e9f5e9;
+}
+
+.warehouse-item {
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 100, 0, 0.1);
+  margin-bottom: 5px;
+}
+
+.warehouse-item strong {
+  color: #2e5e2e;
+  font-weight: 600;
+}
+
+.status {
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 10px;
+  background: #e9f5e9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 100, 0, 0.1);
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+  background: #2e5e2e;
+  color: #fffdf5;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .button-group {
+      flex-direction: column;
+  }
+  .form-group {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .form-group label {
+      min-width: auto;
+      margin-bottom: 5px;
+  }
+  #map {
+      height: 300px;
+  }
+  .results h3 {
+      font-size: 1.1rem;
+  }
+  .route-details, .weather-details, .warehouse-list {
+      padding: 10px;
+  }
+  #languageSelect {
+      min-width: 100px;
+      font-size: 1em;
+  }
+}

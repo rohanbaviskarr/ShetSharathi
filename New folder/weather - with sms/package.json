@@ -1,0 +1,20 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.1",
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "twilio": "^5.4.4",
+    "weather": "file:"
+  }
+}

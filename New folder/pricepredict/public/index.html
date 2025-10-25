@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">किंमत अंदाज - शेतसारथी</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Bootstrap Icons (for potential use) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles (Aligned with Edu-Farm) -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7e8 0%, #c7e2b2 100%);
+            margin: 0;
+            padding-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 100, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar-brand h3 {
+            margin: 0;
+            font-weight: 700;
+            color: #008000;
+        }
+        .btn-success {
+            background-color: #4a704a;
+            border-color: #4a704a;
+        }
+        .btn-success:hover {
+            background-color: #2e5e2e;
+            border-color: #2e5e2e;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px 20px;
+        }
+        .container {
+            background: rgba(255, 245, 224, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 100, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            color: #2e5e2e;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        h3 {
+            color: #2e5e2e;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            color: #3c4f3c;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+        select, button {
+            padding: 12px 15px;
+            border: 2px solid #8a9a5b;
+            border-radius: 8px;
+            background-color: #fffdf5;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        select:focus {
+            border-color: #4a704a;
+            box-shadow: 0 0 5px rgba(74, 112, 74, 0.5);
+            outline: none;
+        }
+        button {
+            background-color: #4a704a;
+            color: white;
+            border: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #2e5e2e;
+            transform: scale(1.05);
+        }
+        canvas {
+            max-width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+        }
+        .forecast-table {
+            background: #fffdf5;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+            margin-top: 20px;
+            display: none;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        .table th, .table td {
+            color: #3c4f3c;
+            font-size: 1.1rem;
+        }
+        .error-box {
+            background: #e0ffe0;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            margin-top: 20px;
+            color: #2e5e2e;
+            font-weight: bold;
+        }
+        footer {
+            background: #2e5e2e;
+            color: #fffdf5;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            select, button {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light py-1">
+            <div class="container-fluid" style="max-width: 1200px; padding: 0 20px;">
+                <a class="navbar-brand me-2" href="#"><h3 id="headerTitle">शेतसारथी</h3></a>
+                <div class="d-flex align-items-center ms-auto">
+                    <select id="languageSelect" class="form-select me-2" onchange="toggleLanguage()">
+                        <option value="en">English</option>
+                        <option value="mr" selected>मराठी</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h2 id="appTitle">किंमत अंदाज</h2>
+            <div class="form-group">
+                <select id="commodity" class="form-select"></select>
+            </div>
+            <div class="form-group">
+                <select id="state" class="form-select"></select>
+            </div>
+            <button id="getForecastBtn" onclick="fetchForecast()" class="btn btn-success">अंदाज मिळवा</button>
+            <div class="forecast-table" id="forecastTable"></div>
+            <canvas id="forecastChart"></canvas>
+            <div id="error" class="error-box"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p id="footerText">© 2025 शेतसारथी. सर्व हक्क राखीव.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Translations Object (Updated with Hindi)
+        const translations = {
+            mr: {
+                headerTitle: "शेतसारथी",
+                appTitle: "किंमत अंदाज",
+                pageTitle: "किंमत अंदाज - शेतसारथी",
+                commodityPlaceholder: "पिक निवडा",
+                statePlaceholder: "राज्य निवडा",
+                getForecast: "अंदाज मिळवा",
+                errorSelect: "कृपया पिक आणि राज्य निवडा!",
+                errorFetch: "अंदाज मिळवताना त्रुटी!",
+                errorLoad: "डेटा लोड करताना त्रुटी!",
+                tableDate: "दिनांक",
+                tablePrice: "अंदाजित किंमत",
+                chartTitle: "पुढील ५ दिवसांचा किंमत अंदाज",
+                chartY: "किंमत (₹)",
+                chartX: "दिनांक",
+                footerText: "© 2025 शेतसारथी. सर्व हक्क राखीव."
+            },
+            en: {
+                headerTitle: "Shetsarathi",
+                appTitle: "Price Forecast",
+                pageTitle: "Price Forecast - Shetsarathi",
+                commodityPlaceholder: "Select Commodity",
+                statePlaceholder: "Select State",
+                getForecast: "Predict",
+                errorSelect: "Please select a commodity and state!",
+                errorFetch: "Error fetching forecast!",
+                errorLoad: "Error loading data!",
+                tableDate: "Date",
+                tablePrice: "Predicted Price",
+                chartTitle: "Price Forecast for Next 5 Days",
+                chartY: "Price (₹)",
+                chartX: "Date",
+                footerText: "© 2025 Shetsarathi. All rights reserved."
+            },
+            hi: {
+                headerTitle: "शेतसारथी",
+                appTitle: "मूल्य पूर्वानुमान",
+                pageTitle: "मूल्य पूर्वानुमान - शेतसारथी",
+                commodityPlaceholder: "फसल चुनें",
+                statePlaceholder: "राज्य चुनें",
+                getForecast: "पूर्वानुमान करें",
+                errorSelect: "कृपया फसल और राज्य चुनें!",
+                errorFetch: "पूर्वानुमान प्राप्त करने में त्रुटी!",
+                errorLoad: "डेटा लोड करने में त्रुटी!",
+                tableDate: "दिनांक",
+                tablePrice: "अनुमानित मूल्य",
+                chartTitle: "अगले ५ दिनों का मूल्य पूर्वानुमान",
+                chartY: "मूल्य (₹)",
+                chartX: "दिनांक",
+                footerText: "© 2025 शेतसारथी। सर्वाधिकार सुरक्षित।"
+            }
+        };
+
+        // Utility Functions
+        function convertToLanguageNumbers(text, lang) {
+            if (lang === "mr") {
+                const marathiDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+                return text.replace(/[0-9]/g, digit => marathiDigits[digit]);
+            } else if (lang === "hi") {
+                const hindiDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+                return text.replace(/[0-9]/g, digit => hindiDigits[digit]);
+            }
+            return text; // English uses standard digits
+        }
+
+        function getCurrentLanguage() {
+            return document.getElementById('languageSelect').value || 'mr';
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.innerText = message;
+            errorDiv.style.display = "block";
+        }
+
+        function hideError() {
+            const errorDiv = document.getElementById('error');
+            errorDiv.style.display = "none";
+        }
+
+        // Initialization Function
+        async function initializePage() {
+            const lang = getCurrentLanguage();
+            const t = translations[lang];
+            try {
+                const response = await fetch('/options');
+                const data = await response.json();
+
+                populateDropdown('commodity', data.commodities, t.commodityPlaceholder);
+                populateDropdown('state', data.states, t.statePlaceholder);
+
+                updateUI(lang);
+            } catch (error) {
+                console.error("Error loading options:", error);
+                showError(t.errorLoad);
+            }
+        }
+
+        function populateDropdown(elementId, items, placeholder) {
+            const select = document.getElementById(elementId);
+            select.innerHTML = `<option value="">${placeholder}</option>`;
+            items.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.text = item;
+                select.appendChild(option);
+            });
+        }
+
+        // Language Toggle
+        function updateUI(lang) {
+            const t = translations[lang];
+            document.getElementById('pageTitle').innerText = t.pageTitle;
+            document.getElementById('headerTitle').innerText = t.headerTitle;
+            document.getElementById('appTitle').innerText = t.appTitle;
+            document.getElementById('commodity').options[0].text = t.commodityPlaceholder;
+            document.getElementById('state').options[0].text = t.statePlaceholder;
+            document.getElementById('getForecastBtn').innerText = t.getForecast;
+            document.getElementById('footerText').innerText = t.footerText;
+
+            const forecastTable = document.getElementById('forecastTable');
+            if (forecastTable.dataset.forecastData) {
+                const forecastData = JSON.parse(forecastTable.dataset.forecastData);
+                renderForecast(forecastData, lang);
+            }
+        }
+
+        function toggleLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            updateUI(lang);
+        }
+
+        // Forecast Fetching and Rendering
+        async function fetchForecast() {
+            const commodity = document.getElementById('commodity').value;
+            const state = document.getElementById('state').value;
+            const lang = getCurrentLanguage();
+            const t = translations[lang];
+            const forecastTable = document.getElementById('forecastTable');
+
+            forecastTable.style.display = "none";
+            hideError();
+
+            if (!commodity || !state) {
+                showError(t.errorSelect);
+                return;
+            }
+
+            try {
+                const response = await fetch(`/forecast?commodity=${encodeURIComponent(commodity)}&state=${encodeURIComponent(state)}`);
+                const result = await response.json();
+
+                if (result.error) {
+                    showError(result.error);
+                    return;
+                }
+
+                forecastTable.dataset.forecastData = JSON.stringify(result);
+                renderForecast(result, lang);
+            } catch (error) {
+                console.error("Error fetching forecast:", error);
+                showError(t.errorFetch);
+            }
+        }
+
+        function renderForecast(result, lang) {
+            const t = translations[lang];
+            const forecastTable = document.getElementById('forecastTable');
+            forecastTable.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.classList.add('table', 'table-bordered');
+            table.innerHTML = `<thead><tr><th>${t.tableDate}</th><th>${t.tablePrice}</th></tr></thead><tbody>`;
+
+            const labels = [];
+            const prices = [];
+
+            result.forecast.forEach(item => {
+                const date = new Date(item.date).toLocaleDateString(lang === 'en' ? 'en-IN' : lang === 'mr' ? 'mr-IN' : 'hi-IN');
+                const price = convertToLanguageNumbers(item.price.toFixed(2), lang);
+                table.innerHTML += `<tr><td>${date}</td><td>${price}</td></tr>`;
+                labels.push(date);
+                prices.push(item.price);
+            });
+
+            table.innerHTML += '</tbody>';
+            forecastTable.appendChild(table);
+            forecastTable.style.display = "block";
+
+            renderChart(labels, prices, lang);
+        }
+
+        function renderChart(labels, prices, lang) {
+            const t = translations[lang];
+            const ctx = document.getElementById('forecastChart').getContext('2d');
+            if (window.myChart) window.myChart.destroy();
+
+            window.myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: t.tablePrice,
+                        data: prices,
+                        backgroundColor: 'rgba(0, 128, 0, 0.2)',
+                        borderColor: 'rgba(0, 100, 0, 1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: false, title: { display: true, text: t.chartY, color: '#2e5e2e' } },
+                        x: { title: { display: true, text: t.chartX, color: '#2e5e2e' } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#2e5e2e' } },
+                        title: { display: true, text: t.chartTitle, color: '#2e5e2e', font: { size: 18 } }
+                    }
+                }
+            });
+        }
+
+        // Initialize on Load
+        window.onload = () => {
+            initializePage();
+        };
+    </script>
+</body>
+</html>

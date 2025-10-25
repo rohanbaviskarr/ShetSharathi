@@ -1,0 +1,19 @@
+{
+  "name": "sms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "node-cron": "^3.0.3",
+    "sms": "file:",
+    "twilio": "^5.4.4"
+  }
+}

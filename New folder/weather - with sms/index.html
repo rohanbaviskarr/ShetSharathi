@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">शेतकरी हवामान अॅप - शेतसारथी</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Styles (Aligned with Edu-Farm) -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7e8 0%, #c7e2b2 100%);
+            margin: 0;
+            padding-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 100, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand h3 {
+            margin: 0;
+            font-weight: 700;
+            color: #008000;
+        }
+        .btn-success {
+            background-color: #4a704a;
+            border-color: #4a704a;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn-success:hover {
+            background-color: #2e5e2e;
+            border-color: #2e5e2e;
+            transform: scale(1.05);
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .container {
+            background: rgba(255, 245, 224, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(0, 100, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            color: #2e5e2e;
+            margin-bottom: 25px;
+            font-size: 2em;
+            text-align: center;
+            font-weight: 600;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        input, select {
+            padding: 12px 15px;
+            border: 2px solid #8a9a5b;
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #fffdf5;
+        }
+        input:focus, select:focus {
+            border-color: #4a704a;
+            box-shadow: 0 0 5px rgba(74, 112, 74, 0.5);
+            outline: none;
+        }
+        .sms-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #4a704a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #2e5e2e;
+            transform: scale(1.05);
+        }
+        .weather-info {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fffdf5;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+            text-align: left;
+        }
+        .weather-info h3 {
+            color: #2e5e2e;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .weather-info h4 {
+            color: #4a704a;
+            margin: 15px 0 10px;
+            font-weight: 500;
+        }
+        .weather-info p {
+            margin: 8px 0;
+            color: #3c4f3c;
+            line-height: 1.6;
+        }
+        #phoneNumber {
+            display: none;
+            width: 200px;
+        }
+        footer {
+            background: #2e5e2e;
+            color: #fffdf5;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            input, select, button {
+                width: 100%;
+            }
+            .sms-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light py-1">
+            <div class="container-fluid" style="max-width: 1200px; padding: 0 20px;">
+                <a class="navbar-brand me-2" href="#"><h3 id="headerTitle">शेतसारथी</h3></a>
+                <div class="d-flex align-items-center ms-auto">
+                    <select id="languageSelect" class="form-select me-2" onchange="toggleLanguage()">
+                        <option value="en">English</option>
+                        <option value="mr" selected>मराठी</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h2 id="appTitle">शेतकरी हवामान अॅप</h2>
+            <div class="input-group">
+                <input type="text" id="location" placeholder="ठिकाण प्रविष्ट करा (उदा. मुंबई)">
+                <select id="cropType">
+                    <option value="general">पीक प्रकार निवडा</option>
+                    <option value="wheat">गहू</option>
+                    <option value="rice">तांदूळ</option>
+                    <option value="vegetables">भाजीपाला</option>
+                    <option value="sugarcane">ऊस</option>
+                    <option value="cotton">कापूस</option>
+                    <option value="pulses">कडधान्य</option>
+                </select>
+            </div>
+            <div class="sms-controls">
+                <label>
+                    <input type="checkbox" id="smsCheckbox" onchange="togglePhoneInput()"> 
+                    <span id="smsLabel">SMS सूचना मिळवा</span>
+                </label>
+                <input type="tel" id="phoneNumber" placeholder="फोन नंबर (उदा. +919876543210)">
+            </div>
+            <button id="getWeatherBtn" onclick="getWeather()">हवामान मिळवा</button>
+            <div id="result" class="weather-info" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p id="footerText">© २०२५ शेतसारथी. सर्व हक्क राखीव.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            mr: {
+                pageTitle: "शेतकरी हवामान अॅप - शेतसारथी",
+                headerTitle: "शेतसारथी",
+                title: "शेतकरी हवामान अॅप",
+                placeholder: "ठिकाण प्रविष्ट करा (उदा. मुंबई)",
+                cropTypes: ["पीक प्रकार निवडा", "गहू", "तांदूळ", "भाजीपाला", "ऊस", "कापूस", "कडधान्य"],
+                button: "हवामान मिळवा",
+                smsLabel: "SMS सूचना मिळवा",
+                phonePlaceholder: "फोन नंबर (उदा. +919876543210)",
+                error: "कृपया ठिकाण प्रविष्ट करा!",
+                fetchError: "हवामान डेटा मिळवताना त्रुटी!",
+                offlineMessage: "ऑफलाइन डेटा दाखवत आहे!",
+                smsError: "SMS पाठवण्यात त्रुटी!",
+                footerText: "© २०२५ शेतसारथी. सर्व हक्क राखीव.",
+                weatherLabels: {
+                    "Temperature": "तापमान",
+                    "Condition": "स्थिती",
+                    "Humidity": "आर्द्रता",
+                    "Wind Speed": "वाऱ्याचा वेग",
+                    "Precipitation": "पर्जन्यमान",
+                    "Rain Forecast": "पाऊस अंदाज",
+                    "Soil Moisture": "मातीतील ओलावा",
+                    "Pest Risk": "कीटक धोका",
+                    "Watering Advice": "पाणी देण्याचा सल्ला",
+                    "Harvesting Alert": "कापणी सूचना",
+                    "Pesticide Advice": "कीटकनाशक सल्ला",
+                    "Extreme Weather Alert": "अतिवृष्टी इशारा",
+                    "Crop Advice": "पीक सल्ला",
+                    "Irrigation Timing": "पाणी देण्याची वेळ",
+                    "weatherIn": "हवामान",
+                    "agriInsights": "कृषी माहिती",
+                    "farmRecs": "शेती शिफारसी",
+                    "Alerts": "सूचना"
+                },
+                farmingInsights: {
+                    "Rain expected – Delay irrigation": "पाऊस अपेक्षित – पाणी देण्यास विलंब करा",
+                    "No rain – Irrigation may be needed": "पाऊस नाही – पाणी देण्याची गरज असू शकते",
+                    "Soil moisture is high – Reduce watering": "मातीतील ओलावा जास्त – पाणी कमी करा",
+                    "Soil is dry – Consider watering": "माती कोरडी आहे – पाणी देण्याचा विचार करा",
+                    "Low": "कमी",
+                    "Moderate – Monitor for diseases": "मध्यम – रोगांचे निरीक्षण करा",
+                    "High – Risk of fungal diseases and pests": "जास्त – बुरशीजन्य रोग आणि कीटकांचा धोका",
+                    "Low rainfall – Irrigation recommended": "कमी पाऊस – पाणी देण्याची शिफारस",
+                    "Sufficient rainfall – No need to irrigate": "पुरेसा पाऊस – पाणी देण्याची गरज नाही",
+                    "No immediate rain threat – Harvest as planned": "तात्काळ पावसाचा धोका नाही – नियोजित कापणी करा",
+                    "Heavy rain expected – Harvest early if possible": "मोठा पाऊस अपेक्षित – शक्य असल्यास लवकर कापणी करा",
+                    "Avoid pesticide spraying – Too hot": "कीटकनाशक फवारणी टाळा – खूप गरम",
+                    "Safe to apply pesticide": "कीटकनाशक वापरण्यास सुरक्षित",
+                    "Heatwave warning! Avoid working outdoors.": "उष्णतेची लाट इशारा! बाहेर काम करणे टाळा।",
+                    "Cold snap expected. Protect sensitive crops.": "थंडी अपेक्षित। संवेदनशील पिकांचे संरक्षण करा।",
+                    "High temperature stress for wheat. Monitor crop health.": "गव्हासाठी उच्च तापमान तणाव। पीक आरोग्याचे निरीक्षण करा।",
+                    "Ideal conditions for wheat growth.": "गहू वाढीसाठी आदर्श परिस्थिती।",
+                    "Low humidity – Monitor rice for dryness.": "कमी आर्द्रता – तांदळाची कोरडेपणाचे निरीक्षण करा।",
+                    "Good conditions for rice farming.": "तांदूळ शेतीसाठी चांगली परिस्थिती।",
+                    "High humidity – Increased risk of fungal diseases in vegetables.": "जास्त आर्द्रता – भाजीपाल्यामध्ये बुरशीजन्य रोगांचा धोका वाढला।",
+                    "Good conditions for vegetable farming.": "भाजीपाला शेतीसाठी चांगली परिस्थिती।",
+                    "No specific crop advice.": "विशिष्ट पीक सल्ला नाही।",
+                    "High heat – Ensure irrigation for sugarcane.": "उच्च उष्णता – ऊसासाठी पाणी देणे सुनिश्चित करा।",
+                    "Good conditions for sugarcane.": "ऊसासाठी चांगली परिस्थिती।",
+                    "High humidity – Watch for boll rot in cotton.": "जास्त आर्द्रता – कापसात बोंड सडण्याकडे लक्ष द्या।",
+                    "Suitable weather for cotton.": "कापसासाठी योग्य हवामान।",
+                    "Excess rain – Risk of waterlogging for pulses.": "जास्त पाऊस – कडधान्यासाठी पाणी साचण्याचा धोका।",
+                    "Good growing conditions.": "चांगली वाढणारी परिस्थिती।",
+                    "Check soil before irrigating.": "पाणी देण्यापूर्वी माती तपासा।",
+                    "Irrigate today or tomorrow.": "आज किंवा उद्या पाणी द्या।",
+                    "No irrigation needed for 2-3 days.": "२-३ दिवस पाणी देण्याची गरज नाही।"
+                },
+                weatherConditions: {
+                    "Sunny": "सूर्यप्रकाश",
+                    "Clear": "स्वच्छ",
+                    "Partly cloudy": "अंशतः ढगाळ",
+                    "Cloudy": "ढगाळ",
+                    "Overcast": "पूर्ण ढगाळ",
+                    "Mist": "धुके",
+                    "Fog": "दाट धुके",
+                    "Light rain": "हलका पाऊस",
+                    "Rain": "पाऊस",
+                    "Heavy rain": "मोठा पाऊस",
+                    "Showers": "सरी",
+                    "Thunderstorm": "वादळी पाऊस",
+                    "Snow": "हिमवर्षाव",
+                    "Light snow": "हलका हिमवर्षाव",
+                    "Heavy snow": "जोरदार हिमवर्षाव",
+                    "Windy": "वारा"
+                },
+                alerts: {
+                    "Heatwave expected!": "उष्णतेची लाट अपेक्षित!",
+                    "Heavy rain warning!": "मोठ्या पावसाचा इशारा!",
+                    "No alerts": "कोणताही इशारा नाही"
+                }
+            },
+            en: {
+                pageTitle: "Farmer Weather App - Shetsarathi",
+                headerTitle: "Shetsarathi",
+                title: "Farmer Weather App",
+                placeholder: "Enter location (e.g., Mumbai)",
+                cropTypes: ["Select Crop Type", "Wheat", "Rice", "Vegetables", "Sugarcane", "Cotton", "Pulses"],
+                button: "Get Weather",
+                smsLabel: "Receive SMS Alerts",
+                phonePlaceholder: "Phone Number (e.g., +919876543210)",
+                error: "Please enter a location!",
+                fetchError: "Error fetching weather data!",
+                offlineMessage: "Showing offline data!",
+                smsError: "Failed to send SMS!",
+                footerText: "© 2025 Shetsarathi. All rights reserved.",
+                weatherLabels: {
+                    "Temperature": "Temperature",
+                    "Condition": "Condition",
+                    "Humidity": "Humidity",
+                    "Wind Speed": "Wind Speed",
+                    "Precipitation": "Precipitation",
+                    "Rain Forecast": "Rain Forecast",
+                    "Soil Moisture": "Soil Moisture",
+                    "Pest Risk": "Pest Risk",
+                    "Watering Advice": "Watering Advice",
+                    "Harvesting Alert": "Harvesting Alert",
+                    "Pesticide Advice": "Pesticide Advice",
+                    "Extreme Weather Alert": "Extreme Weather Alert",
+                    "Crop Advice": "Crop Advice",
+                    "Irrigation Timing": "Irrigation Timing",
+                    "weatherIn": "Weather in",
+                    "agriInsights": "Agriculture Insights",
+                    "farmRecs": "Farming Recommendations",
+                    "Alerts": "Alerts"
+                },
+                farmingInsights: {
+                    "Rain expected – Delay irrigation": "Rain expected – Delay irrigation",
+                    "No rain – Irrigation may be needed": "No rain – Irrigation may be needed",
+                    "Soil moisture is high – Reduce watering": "Soil moisture is high – Reduce watering",
+                    "Soil is dry – Consider watering": "Soil is dry – Consider watering",
+                    "Low": "Low",
+                    "Moderate – Monitor for diseases": "Moderate – Monitor for diseases",
+                    "High – Risk of fungal diseases and pests": "High – Risk of fungal diseases and pests",
+                    "Low rainfall – Irrigation recommended": "Low rainfall – Irrigation recommended",
+                    "Sufficient rainfall – No need to irrigate": "Sufficient rainfall – No need to irrigate",
+                    "No immediate rain threat – Harvest as planned": "No immediate rain threat – Harvest as planned",
+                    "Heavy rain expected – Harvest early if possible": "Heavy rain expected – Harvest early if possible",
+                    "Avoid pesticide spraying – Too hot": "Avoid pesticide spraying – Too hot",
+                    "Safe to apply pesticide": "Safe to apply pesticide",
+                    "Heatwave warning! Avoid working outdoors.": "Heatwave warning! Avoid working outdoors.",
+                    "Cold snap expected. Protect sensitive crops.": "Cold snap expected. Protect sensitive crops.",
+                    "High temperature stress for wheat. Monitor crop health.": "High temperature stress for wheat. Monitor crop health.",
+                    "Ideal conditions for wheat growth.": "Ideal conditions for wheat growth.",
+                    "Low humidity – Monitor rice for dryness.": "Low humidity – Monitor rice for dryness.",
+                    "Good conditions for rice farming.": "Good conditions for rice farming.",
+                    "High humidity – Increased risk of fungal diseases in vegetables.": "High humidity – Increased risk of fungal diseases in vegetables.",
+                    "Good conditions for vegetable farming.": "Good conditions for vegetable farming.",
+                    "No specific crop advice.": "No specific crop advice.",
+                    "High heat – Ensure irrigation for sugarcane.": "High heat – Ensure irrigation for sugarcane.",
+                    "Good conditions for sugarcane.": "Good conditions for sugarcane.",
+                    "High humidity – Watch for boll rot in cotton.": "High humidity – Watch for boll rot in cotton.",
+                    "Suitable weather for cotton.": "Suitable weather for cotton.",
+                    "Excess rain – Risk of waterlogging for pulses.": "Excess rain – Risk of waterlogging for pulses.",
+                    "Good growing conditions.": "Good growing conditions.",
+                    "Check soil before irrigating.": "Check soil before irrigating.",
+                    "Irrigate today or tomorrow.": "Irrigate today or tomorrow.",
+                    "No irrigation needed for 2-3 days.": "No irrigation needed for 2-3 days."
+                },
+                weatherConditions: {
+                    "Sunny": "Sunny",
+                    "Clear": "Clear",
+                    "Partly cloudy": "Partly cloudy",
+                    "Cloudy": "Cloudy",
+                    "Overcast": "Overcast",
+                    "Mist": "Mist",
+                    "Fog": "Fog",
+                    "Light rain": "Light rain",
+                    "Rain": "Rain",
+                    "Heavy rain": "Heavy rain",
+                    "Showers": "Showers",
+                    "Thunderstorm": "Thunderstorm",
+                    "Snow": "Snow",
+                    "Light snow": "Light snow",
+                    "Heavy snow": "Heavy snow",
+                    "Windy": "Windy"
+                },
+                alerts: {
+                    "Heatwave expected!": "Heatwave expected!",
+                    "Heavy rain warning!": "Heavy rain warning!",
+                    "No alerts": "No alerts"
+                }
+            },
+            hi: {
+                pageTitle: "किसान मौसम ऐप - शेतसारथी",
+                headerTitle: "शेतसारथी",
+                title: "किसान मौसम ऐप",
+                placeholder: "स्थान दर्ज करें (उदा. मुंबई)",
+                cropTypes: ["फसल प्रकार चुनें", "गेहूं", "चावल", "सब्जियां", "गन्ना", "कपास", "दालें"],
+                button: "मौसम प्राप्त करें",
+                smsLabel: "SMS चेतावनी प्राप्त करें",
+                phonePlaceholder: "फोन नंबर (उदा. +919876543210)",
+                error: "कृपया स्थान दर्ज करें!",
+                fetchError: "मौसम डेटा प्राप्त करने में त्रुटि!",
+                offlineMessage: "ऑफलाइन डेटा दिखा रहा है!",
+                smsError: "SMS भेजने में विफल!",
+                footerText: "© २०२५ शेतसारथी। सर्वाधिकार सुरक्षित।",
+                weatherLabels: {
+                    "Temperature": "तापमान",
+                    "Condition": "स्थिति",
+                    "Humidity": "नमी",
+                    "Wind Speed": "हवा की गति",
+                    "Precipitation": "वर्षा",
+                    "Rain Forecast": "बारिश का अनुमान",
+                    "Soil Moisture": "मिट्टी की नमी",
+                    "Pest Risk": "कीट जोखिम",
+                    "Watering Advice": "सिंचाई सलाह",
+                    "Harvesting Alert": "कटाई चेतावनी",
+                    "Pesticide Advice": "कीटनाशक सलाह",
+                    "Extreme Weather Alert": "अत्यधिक मौसम चेतावनी",
+                    "Crop Advice": "फसल सलाह",
+                    "Irrigation Timing": "सिंचाई का समय",
+                    "weatherIn": "मौसम",
+                    "agriInsights": "कृषि जानकारी",
+                    "farmRecs": "खेती सिफारिशें",
+                    "Alerts": "चेतावनी"
+                },
+                farmingInsights: {
+                    "Rain expected – Delay irrigation": "बारिश की उम्मीद – सिंचाई में देरी करें",
+                    "No rain – Irrigation may be needed": "कोई बारिश नहीं – सिंचाई की आवश्यकता हो सकती है",
+                    "Soil moisture is high – Reduce watering": "मिट्टी की नमी अधिक – पानी कम करें",
+                    "Soil is dry – Consider watering": "मिट्टी सूखी है – पानी देने पर विचार करें",
+                    "Low": "कम",
+                    "Moderate – Monitor for diseases": "मध्यम – बीमारियों की निगरानी करें",
+                    "High – Risk of fungal diseases and pests": "उच्च – कवक रोग और कीटों का जोखिम",
+                    "Low rainfall – Irrigation recommended": "कम बारिश – सिंचाई की सिफारिश",
+                    "Sufficient rainfall – No need to irrigate": "पर्याप्त बारिश – सिंचाई की जरूरत नहीं",
+                    "No immediate rain threat – Harvest as planned": "तत्काल बारिश का खतरा नहीं – नियोजित कटाई करें",
+                    "Heavy rain expected – Harvest early if possible": "भारी बारिश की उम्मीद – यदि संभव हो तो जल्दी कटाई करें",
+                    "Avoid pesticide spraying – Too hot": "कीटनाशक छिड़काव से बचें – बहुत गर्म",
+                    "Safe to apply pesticide": "कीटनाशक लगाना सुरक्षित",
+                    "Heatwave warning! Avoid working outdoors.": "लू की चेतावनी! बाहर काम करने से बचें।",
+                    "Cold snap expected. Protect sensitive crops.": "ठंड की उम्मीद। संवेदनशील फसलों की रक्षा करें।",
+                    "High temperature stress for wheat. Monitor crop health.": "गेहूं के लिए उच्च तापमान तनाव। फसल स्वास्थ्य की निगरानी करें।",
+                    "Ideal conditions for wheat growth.": "गेहूं की वृद्धि के लिए आदर्श स्थिति।",
+                    "Low humidity – Monitor rice for dryness.": "कम नमी – चावल की सूखापन की निगरानी करें।",
+                    "Good conditions for rice farming.": "चावल की खेती के लिए अच्छी स्थिति।",
+                    "High humidity – Increased risk of fungal diseases in vegetables.": "उच्च नमी – सब्जियों में कवक रोगों का जोखिम बढ़ा।",
+                    "Good conditions for vegetable farming.": "सब्जी खेती के लिए अच्छी स्थिति।",
+                    "No specific crop advice.": "कोई विशिष्ट फसल सलाह नहीं।",
+                    "High heat – Ensure irrigation for sugarcane.": "उच्च गर्मी – गन्ने के लिए सिंचाई सुनिश्चित करें।",
+                    "Good conditions for sugarcane.": "गन्ने के लिए अच्छी स्थिति।",
+                    "High humidity – Watch for boll rot in cotton.": "उच्च नमी – कपास में गलन पर नजर रखें।",
+                    "Suitable weather for cotton.": "कपास के लिए उपयुक्त मौसम।",
+                    "Excess rain – Risk of waterlogging for pulses.": "अधिक बारिश – दालों के लिए जलभराव का जोखिम।",
+                    "Good growing conditions.": "अच्छी बढ़ती स्थिति।",
+                    "Check soil before irrigating.": "सिंचाई से पहले मिट्टी जांचें।",
+                    "Irrigate today or tomorrow.": "आज या कल सिंचाई करें।",
+                    "No irrigation needed for 2-3 days.": "२-३ दिनों तक सिंचाई की जरूरत नहीं।"
+                },
+                weatherConditions: {
+                    "Sunny": "धूप",
+                    "Clear": "साफ",
+                    "Partly cloudy": "आंशिक रूप से बादल",
+                    "Cloudy": "बादल छाए हुए",
+                    "Overcast": "पूरी तरह बादल",
+                    "Mist": "कोहरा",
+                    "Fog": "घना कोहरा",
+                    "Light rain": "हल्की बारिश",
+                    "Rain": "बारिश",
+                    "Heavy rain": "भारी बारिश",
+                    "Showers": "बौछारें",
+                    "Thunderstorm": "तूफान के साथ बारिश",
+                    "Snow": "बर्फ",
+                    "Light snow": "हल्की बर्फ",
+                    "Heavy snow": "भारी बर्फ",
+                    "Windy": "हवादार"
+                },
+                alerts: {
+                    "Heatwave expected!": "लू की उम्मीद!",
+                    "Heavy rain warning!": "भारी बारिश की चेतावनी!",
+                    "No alerts": "कोई चेतावनी नहीं"
+                }
+            }
+        };
+
+        // Utility Functions
+        function convertToLanguageNumbers(text, lang) {
+            if (lang === "mr" || lang === "hi") {
+                const digits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+                return text.replace(/[0-9]/g, digit => digits[digit]);
+            }
+            return text; // English uses standard digits
+        }
+
+        function toggleLanguage() {
+            const lang = document.getElementById("languageSelect").value;
+            const t = translations[lang];
+
+            document.getElementById("pageTitle").innerText = t.pageTitle;
+            document.getElementById("headerTitle").innerText = t.headerTitle;
+            document.getElementById("appTitle").innerText = t.title;
+            document.getElementById("location").placeholder = t.placeholder;
+            document.getElementById("phoneNumber").placeholder = t.phonePlaceholder;
+            document.getElementById("smsLabel").innerText = t.smsLabel;
+            const cropSelect = document.getElementById("cropType");
+            t.cropTypes.forEach((text, i) => cropSelect.options[i].text = text);
+            document.getElementById("getWeatherBtn").innerText = t.button;
+            document.getElementById("footerText").innerText = t.footerText.replace("२०२५", convertToLanguageNumbers("2025", lang));
+
+            const resultDiv = document.getElementById("result");
+            if (resultDiv.style.display === "block" && resultDiv.dataset.weatherData) {
+                displayWeather(JSON.parse(resultDiv.dataset.weatherData), lang);
+            }
+        }
+
+        function togglePhoneInput() {
+            const checkbox = document.getElementById("smsCheckbox");
+            const phoneInput = document.getElementById("phoneNumber");
+            phoneInput.style.display = checkbox.checked ? "block" : "none";
+        }
+
+        function translateInsight(insight, lang) {
+            return translations[lang].farmingInsights[insight] || insight;
+        }
+
+        function translateCondition(condition, lang) {
+            return translations[lang].weatherConditions[condition] || condition;
+        }
+
+        function translateAlert(alert, lang) {
+            return translations[lang].alerts[alert] || alert;
+        }
+
+        function translateNum(value, lang) {
+            const num = value.match(/[0-9.]+/);
+            if (!num) return value;
+            const unit = value.replace(num[0], '').trim();
+            return `${convertToLanguageNumbers(num[0], lang)} ${unit}`;
+        }
+
+        function displayWeather(data, lang) {
+            const t = translations[lang];
+            const wl = t.weatherLabels;
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <h3>${lang === "mr" || lang === "hi" ? `${wl.weatherIn}: ${data.location}, ${data.country}` 
+                    : `${wl.weatherIn} ${data.location}, ${data.country}`}</h3>
+                ${data.alerts.map(alert => `<p style="color: ${alert.includes('No') ? '#3c4f3c' : 'red'}"><strong>${wl.Alerts}:</strong> ${translateAlert(alert, lang)}</p>`).join('')}
+                <p><strong>${wl.Temperature}:</strong> ${translateNum(data.temperature.split('°C')[0], lang)}°C</p>
+                <p><strong>${wl.Condition}:</strong> ${translateCondition(data.condition, lang)}</p>
+                <p><strong>${wl.Humidity}:</strong> ${translateNum(data.humidity.split('%')[0], lang)}%</p>
+                <p><strong>${wl["Wind Speed"]}:</strong> ${translateNum(data.wind_speed.split(' km/h')[0], lang)} km/h</p>
+                <p><strong>${wl.Precipitation}:</strong> ${translateNum(data.precipitation.split(' mm')[0], lang)} mm</p>
+                <h4>🌾 ${wl.agriInsights}</h4>
+                <p><strong>${wl["Rain Forecast"]}:</strong> ${translateInsight(data.rainForecast, lang)}</p>
+                <p><strong>${wl["Soil Moisture"]}:</strong> ${translateInsight(data.soilMoisture, lang)}</p>
+                <p><strong>${wl["Pest Risk"]}:</strong> ${translateInsight(data.pestRisk, lang)}</p>
+                <h4>🚜 ${wl.farmRecs}</h4>
+                <p><strong>${wl["Watering Advice"]}:</strong> ${translateInsight(data.wateringAdvice, lang)}</p>
+                <p><strong>${wl["Harvesting Alert"]}:</strong> ${translateInsight(data.harvestingAlert, lang)}</p>
+                <p><strong>${wl["Pesticide Advice"]}:</strong> ${translateInsight(data.pesticideAdvice, lang)}</p>
+                <p><strong>${wl["Extreme Weather Alert"]}:</strong> ${translateInsight(data.extremeWeather, lang)}</p>
+                <p><strong>${wl["Irrigation Timing"]}:</strong> ${translateInsight(data.irrigationTiming, lang)}</p>
+                <p><strong>${wl["Crop Advice"]}:</strong> ${translateInsight(data.cropAdvice, lang)}</p>
+            `;
+            resultDiv.dataset.weatherData = JSON.stringify(data);
+            resultDiv.style.display = "block";
+        }
+
+        async function sendSMS(phoneNumber, message, lang) {
+            const t = translations[lang];
+            try {
+                const response = await fetch('http://localhost:5000/send-sms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phoneNumber, message })
+                });
+                const result = await response.json();
+                if (!result.success) {
+                    alert(t.smsError);
+                }
+            } catch (error) {
+                alert(t.smsError);
+            }
+        }
+
+        async function getWeather() {
+            const location = document.getElementById("location").value;
+            const cropType = document.getElementById("cropType").value;
+            const lang = document.getElementById("languageSelect").value;
+            const t = translations[lang];
+            const smsCheckbox = document.getElementById("smsCheckbox");
+            const phoneNumber = document.getElementById("phoneNumber").value;
+
+            if (!location) {
+                alert(t.error);
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:5000/weather?location=${encodeURIComponent(location)}&cropType=${cropType}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    alert(t.fetchError);
+                    const cachedData = localStorage.getItem('weatherData');
+                    if (cachedData) {
+                        displayWeather(JSON.parse(cachedData), lang);
+                        alert(t.offlineMessage);
+                    }
+                    return;
+                }
+
+                localStorage.setItem('weatherData', JSON.stringify(data));
+                displayWeather(data, lang);
+
+                if (smsCheckbox.checked && phoneNumber) {
+                    const message = `${t.weatherIn} ${data.location}: ${data.alerts.join(', ')}. ${t.weatherLabels["Crop Advice"]}: ${translateInsight(data.cropAdvice, lang)}`;
+                    await sendSMS(phoneNumber, message, lang);
+                }
+            } catch (error) {
+                alert(t.fetchError);
+                const cachedData = localStorage.getItem('weatherData');
+                if (cachedData) {
+                    displayWeather(JSON.parse(cachedData), lang);
+                    alert(t.offlineMessage);
+                }
+            }
+        }
+
+        window.onload = () => {
+            document.getElementById("languageSelect").value = 'mr';
+            toggleLanguage();
+        };
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
