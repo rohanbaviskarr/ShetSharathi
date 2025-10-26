@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">पिक डॅशबोर्ड - शेतसारथी</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7e8 0%, #c7e2b2 100%);
+            margin: 0;
+            padding-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 100, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand h3 {
+            margin: 0;
+            font-weight: 700;
+            color: #008000;
+        }
+        .btn-success {
+            background-color: #4a704a;
+            border-color: #4a704a;
+        }
+        .btn-success:hover {
+            background-color: #2e5e2e;
+            border-color: #2e5e2e;
+        }
+        .main-content {
+            flex: 1;
+            padding: 40px 20px;
+            margin-top: 70px;
+        }
+        .container {
+            background: rgba(255, 245, 224, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 8px 32px rgba(0, 100, 0, 0.2);
+        }
+        h2 {
+            color: #2e5e2e;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        select, button {
+            padding: 12px 15px;
+            border: 2px solid #8a9a5b;
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #fffdf5;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .dashboard-table {
+            background: #fffdf5;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+            margin-top: 20px;
+            display: none;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        .table th, .table td {
+            color: #3c4f3c;
+            font-size: 1.1rem;
+        }
+        .error-box {
+            background: #ffe5e5;
+            border: 1px solid #ff9999;
+            border-radius: 8px;
+            padding: 10px;
+            color: #d9534f;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+        footer {
+            background: #2e5e2e;
+            color: #fffdf5;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+        .language-controls {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .language-btn {
+            width: auto;
+            display: inline-block;
+        }
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            select, button {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-expand-lg navbar-light py-1">
+            <div class="container-fluid" style="max-width: 1200px; padding: 0 20px;">
+                <a class="navbar-brand me-2" href="#"><h3 id="headerTitle">शेतसारथी</h3></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h2 id="appTitle">पिक डॅशबोर्ड</h2>
+            <div class="input-group">
+                <select id="crop" class="form-select"></select>
+                <button id="getDashboardBtn" onclick="fetchDashboard()" class="btn btn-success">डॅशबोर्ड पहा</button>
+                <div class="language-controls">
+                    <button id="languageToggleBtn" onclick="toggleLanguage()" class="btn btn-success language-btn">English</button>
+                </div>
+            </div>
+            <div class="dashboard-table" id="dashboardTable"></div>
+            <div id="error" class="error-box"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p id="footerText">© 2025 शेतसारथी. सर्व हक्क राखीव.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const translations = {
+            mr: {
+                headerTitle: "शेतसारथी",
+                appTitle: "पिक डॅशबोर्ड",
+                pageTitle: "पिक डॅशबोर्ड - शेतसारथी",
+                cropPlaceholder: "पिक निवडा",
+                getDashboard: "डॅशबोर्ड पहा",
+                errorSelect: "कृपया पिक निवडा!",
+                errorFetch: "डॅशबोर्ड मिळवताना त्रुटी!",
+                errorLoad: "डेटा लोड करताना त्रुटी!",
+                tableState: "राज्य",
+                tableMinPrice: "किमान किंमत (₹)",
+                tableMaxPrice: "कमाल किंमत (₹)",
+                footerText: "© 2025 शेतसारथी. सर्व हक्क राखीव."
+            },
+            en: {
+                headerTitle: "Shetsarathi",
+                appTitle: "Crop Dashboard",
+                pageTitle: "Crop Dashboard - Shetsarathi",
+                cropPlaceholder: "Select Crop",
+                getDashboard: "View Dashboard",
+                errorSelect: "Please select a crop!",
+                errorFetch: "Error fetching dashboard!",
+                errorLoad: "Error loading data!",
+                tableState: "State",
+                tableMinPrice: "Min Price (₹)",
+                tableMaxPrice: "Max Price (₹)",
+                footerText: "© 2025 Shetsarathi. All rights reserved."
+            }
+        };
+
+        function convertToMarathiNumbers(text, lang) {
+            if (lang !== "mr") return text;
+            const marathiDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+            return text.replace(/[0-9]/g, digit => marathiDigits[digit]);
+        }
+
+        function getCurrentLanguage() {
+            return document.getElementById('languageToggleBtn').dataset.lang || 'mr';
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.innerText = message;
+            errorDiv.style.display = "block";
+        }
+
+        function hideError() {
+            document.getElementById('error').style.display = "none";
+        }
+
+        async function initializePage() {
+            const lang = getCurrentLanguage();
+            const t = translations[lang];
+            try {
+                const response = await fetch('/crops');
+                const data = await response.json();
+                populateDropdown('crop', data.crops, t.cropPlaceholder);
+                updateUI(lang);
+            } catch (error) {
+                console.error("Error loading crops:", error);
+                showError(t.errorLoad);
+            }
+        }
+
+        function populateDropdown(elementId, items, placeholder) {
+            const select = document.getElementById(elementId);
+            select.innerHTML = `<option value="">${placeholder}</option>`;
+            items.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.text = item;
+                select.appendChild(option);
+            });
+        }
+
+        function updateUI(lang) {
+            const t = translations[lang];
+            document.getElementById('pageTitle').innerText = t.pageTitle;
+            document.getElementById('headerTitle').innerText = t.headerTitle;
+            document.getElementById('appTitle').innerText = t.appTitle;
+            document.getElementById('crop').options[0].text = t.cropPlaceholder;
+            document.getElementById('getDashboardBtn').innerText = t.getDashboard;
+            document.getElementById('footerText').innerText = t.footerText;
+            document.getElementById('languageToggleBtn').innerText = lang === 'mr' ? 'English' : 'मराठी';
+            document.getElementById('languageToggleBtn').dataset.lang = lang;
+
+            const dashboardTable = document.getElementById('dashboardTable');
+            if (dashboardTable.dataset.dashboardData) {
+                const dashboardData = JSON.parse(dashboardTable.dataset.dashboardData);
+                renderDashboard(dashboardData, lang);
+            }
+        }
+
+        function toggleLanguage() {
+            const currentLang = getCurrentLanguage();
+            const newLang = currentLang === 'mr' ? 'en' : 'mr';
+            updateUI(newLang);
+        }
+
+        async function fetchDashboard() {
+            const crop = document.getElementById('crop').value;
+            const lang = getCurrentLanguage();
+            const t = translations[lang];
+            const dashboardTable = document.getElementById('dashboardTable');
+
+            dashboardTable.style.display = "none";
+            hideError();
+
+            if (!crop) {
+                showError(t.errorSelect);
+                return;
+            }
+
+            try {
+                const response = await fetch(`/dashboard?crop=${encodeURIComponent(crop)}`);
+                const result = await response.json();
+
+                if (result.error) {
+                    showError(result.error);
+                    return;
+                }
+
+                dashboardTable.dataset.dashboardData = JSON.stringify(result);
+                renderDashboard(result, lang);
+            } catch (error) {
+                console.error("Error fetching dashboard:", error);
+                showError(t.errorFetch);
+            }
+        }
+
+        function renderDashboard(result, lang) {
+            const t = translations[lang];
+            const dashboardTable = document.getElementById('dashboardTable');
+            dashboardTable.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.classList.add('table', 'table-bordered');
+            table.innerHTML = `<thead><tr><th>${t.tableState}</th><th>${t.tableMinPrice}</th><th>${t.tableMaxPrice}</th></tr></thead><tbody>`;
+
+            result.forEach(item => {
+                const minPrice = convertToMarathiNumbers(item.min_price.toString(), lang);
+                const maxPrice = convertToMarathiNumbers(item.max_price.toString(), lang);
+                table.innerHTML += `<tr><td>${item.state}</td><td>${minPrice}</td><td>${maxPrice}</td></tr>`;
+            });
+
+            table.innerHTML += '</tbody>';
+            dashboardTable.appendChild(table);
+            dashboardTable.style.display = "block";
+        }
+
+        window.onload = () => {
+            initializePage();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+django
+django-admin_thumbnails
+requests
+stripe
+joblib
+pandas
+surprise
